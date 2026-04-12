@@ -32,6 +32,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/wechat-mp-scraper/SKILL.md`: user-facing skill contract for WeChat public-account article scraping.
 - `skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py`: Python CLI entrypoint for HTML/content/resource extraction.
 - `skills/wechat-mp-scraper/references/output-format.md`: output field reference for generated report/content/resource files.
+- `skills/wechat-mp-scraper/examples/hermes-openclaw/content.md`: checked-in sample Markdown export with local image assets for viewer compatibility checks.
 - `skills/feishu-user-auth/SKILL.md`: user-facing skill contract and Feishu auth workflow.
 - `skills/feishu-user-auth/scripts/run-auth.js`: CLI entrypoint for auth/system-token/refresh/show/remove flows.
 - `skills/feishu-user-auth/scripts/src/*.js`: OAuth, token store, and scope resolution implementation.

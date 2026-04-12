@@ -6,6 +6,7 @@
 - Refactor `feishu-user-auth` from single-tenant config to a pure multi-tenant config model with top-level `tenants` and optional `defaultTenant`.
 - Add `--tenant <key>` selection for all config-dependent `feishu-auth` commands, while allowing fallback to `defaultTenant` when configured.
 - Keep token storage keyed by real `appId` so existing app-bound token reuse semantics remain intact.
+- Add checked-in sample output under `skills/wechat-mp-scraper/examples/hermes-openclaw/` with `content.md` and referenced local images for Markdown viewer compatibility checks.
 - Add new skill `xhs-text2image` for Xiaohongshu Creator text-to-image automation, theme switching, and bundled customer preview assets.
 - Add `skills/xhs-text2image/theme_catalog/` with a generated overview image, manifest, and per-theme sample images.
 - Register `./skills/xhs-text2image` in a new `xiaohongshu-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.18`.
@@ -14,6 +15,7 @@
 
 ### Documentation
 - Update `skills/feishu-user-auth/SKILL.md`, `skills/feishu-user-auth/config.json`, and CLI help text to document tenant-based usage and the new config shape.
+- Update `skills/wechat-mp-scraper/SKILL.md` and `AGENTS.md` to document the checked-in sample export path.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `xhs-text2image`.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `wechat-mp-scraper`.
 

@@ -6,6 +6,7 @@
 - 将 `feishu-user-auth` 从单租户配置重构为纯多租户配置模型，支持顶层 `tenants` 和可选 `defaultTenant`。
 - 为所有依赖配置的 `feishu-auth` 命令增加 `--tenant <key>` 选择能力；如果已配置 `defaultTenant`，则允许省略 `--tenant`。
 - 保持 token 仍按真实 `appId` 存储，延续现有基于应用 ID 的 token 复用语义。
+- 新增仓库内置样例导出 `skills/wechat-mp-scraper/examples/hermes-openclaw/`，包含 `content.md` 与其引用的本地图片，用于校验 Markdown 查看器的图片兼容性。
 - 新增 `xhs-text2image` skill：用于小红书创作平台文字配图自动化、主题切换，以及面向客户预览的现成主题样例资产。
 - 新增 `skills/xhs-text2image/theme_catalog/`，包含自动生成的总览图、manifest 和每个主题的单图样例。
 - 在新的 `xiaohongshu-tools` 插件分组中注册 `./skills/xhs-text2image`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.18`。
@@ -14,6 +15,7 @@
 
 ### 文档
 - 更新 `skills/feishu-user-auth/SKILL.md`、`skills/feishu-user-auth/config.json` 和 CLI 帮助文案，改为说明 tenant 化调用方式与新的配置结构。
+- 更新 `skills/wechat-mp-scraper/SKILL.md` 与 `AGENTS.md`，补充仓库内置样例导出路径。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `xhs-text2image` 的安装与使用说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `wechat-mp-scraper` 的安装与使用说明。
 

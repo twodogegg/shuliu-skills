@@ -77,6 +77,11 @@ python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --output-dir "
 - `snippets/animation-snippets.txt`
 - `snippets/matched-blocks.html`
 
+仓库里还附带了一个可直接打开的样例导出：
+
+- `skills/wechat-mp-scraper/examples/hermes-openclaw/content.md`
+- `skills/wechat-mp-scraper/examples/hermes-openclaw/assets/`
+
 ## 解释结果时的重点
 
 如果用户问“这段动画怎么做的”，优先回答：
