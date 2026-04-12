@@ -3,6 +3,10 @@
 ## Unreleased
 
 ### 变更
+- 新增 `douyin-video-fetch` skill：用于浏览器抓取抖音视频详情，并可按视频页或分享链接直接下载视频文件。
+- 新增 `video-analysis` skill：用于通过 GeekAI 的 OpenAI 兼容视频接口分析公网视频。
+- 在现有 `douyin-tools` 插件分组中注册 `./skills/douyin-video-fetch`。
+- 新增 `video-analysis-tools` 插件分组并注册 `./skills/video-analysis`，同时将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.21`。
 - 将 `feishu-user-auth` 从单租户配置重构为纯多租户配置模型，支持顶层 `tenants` 和可选 `defaultTenant`。
 - 为所有依赖配置的 `feishu-auth` 命令增加 `--tenant <key>` 选择能力；如果已配置 `defaultTenant`，则允许省略 `--tenant`。
 - 保持 token 仍按真实 `appId` 存储，延续现有基于应用 ID 的 token 复用语义。
@@ -14,6 +18,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `douyin-video-fetch` 和 `video-analysis` 的安装与使用说明。
 - 更新 `skills/feishu-user-auth/SKILL.md`、`skills/feishu-user-auth/config.json` 和 CLI 帮助文案，改为说明 tenant 化调用方式与新的配置结构。
 - 更新 `skills/wechat-mp-scraper/SKILL.md` 与 `AGENTS.md`，补充仓库内置样例导出路径。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `xhs-text2image` 的安装与使用说明。

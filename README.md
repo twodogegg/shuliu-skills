@@ -12,6 +12,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
+npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
+npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
@@ -30,6 +32,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
+npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
+npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
@@ -44,7 +48,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 |--------|-------------|--------|
 | **image-generation-skills** | Image generation backends | [banana-proxy](#banana-proxy), [geek-image](#geek-image), [ecommerce-images](#ecommerce-images) |
 | **video-generation-skills** | Video generation backends | [sora-video](#sora-video) |
-| **douyin-tools** | Douyin share URL parsing | [douyin-share-info](#douyin-share-info) |
+| **douyin-tools** | Douyin video parsing and download | [douyin-share-info](#douyin-share-info), [douyin-video-fetch](#douyin-video-fetch) |
+| **video-analysis-tools** | Video analysis and transcript workflows | [video-analysis](#video-analysis) |
 | **wechat-tools** | WeChat public account article scraping | [wechat-mp-scraper](#wechat-mp-scraper) |
 | **feishu-tools** | Feishu auth, interactive cards, native approval, token reuse, and Bitable operations | [feishu-user-auth](#feishu-user-auth), [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval), [feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | Xiaohongshu creator workflows | [xhs-text2image](#xhs-text2image) |
@@ -99,6 +104,55 @@ npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyi
 Environment variable:
 
 - `TIKHUB_API_KEY` (required)
+
+### douyin-video-fetch
+
+Browser-based Douyin video fetching for video pages or share URLs, with optional file download.
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  --url "https://www.douyin.com/video/7624937951562091782" \
+  --download \
+  --output /tmp/douyin-7624937951562091782.mp4
+```
+
+Key output fields:
+
+- `aweme_id`
+- `desc`
+- `author`
+- `cover_url`
+- `audio_url`
+- `play_url`
+- `download_url`
+- `downloaded_path`
+
+### video-analysis
+
+Send a public video URL into GeekAI's OpenAI-compatible video API and return analysis, transcript-style output, and usage stats.
+
+```bash
+python3 skills/video-analysis/scripts/analyze_video.py \
+  --video-url "https://example.com/video.mp4" \
+  --model "qwen3.6-plus"
+```
+
+It can also read the JSON output from `douyin-video-fetch`:
+
+```bash
+python3 skills/video-analysis/scripts/analyze_video.py \
+  --video-info-json /tmp/douyin-detail.json
+```
+
+Environment variables:
+
+- `GEEKAI_API_KEY` (required)
+- `GEEKAI_BASE_URL` (optional, default `https://geekai.co/api/v1`)
+
+Notes:
+
+- The upstream model service must be able to fetch the video URL directly.
+- Temporary Douyin hotlinks may be blocked for third-party fetches; if that happens, switch to a stable public URL.
 
 ### wechat-mp-scraper
 

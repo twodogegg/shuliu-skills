@@ -1,0 +1,4 @@
+interface:
+  display_name: "抖音视频抓取"
+  short_description: "抓取抖音视频详情并可直接下载视频文件。"
+  default_prompt: "请根据抖音视频页链接或分享链接抓取 aweme 详情，返回结构化信息，并在需要时下载视频文件。"

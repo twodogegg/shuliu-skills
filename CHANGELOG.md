@@ -3,6 +3,10 @@
 ## Unreleased
 
 ### Changes
+- Add new skill `douyin-video-fetch` for browser-based Douyin video detail capture and optional file download from video/share URLs.
+- Add new skill `video-analysis` for public video analysis via GeekAI's OpenAI-compatible video chat API.
+- Register `./skills/douyin-video-fetch` in the existing `douyin-tools` plugin group.
+- Register `./skills/video-analysis` in a new `video-analysis-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.21`.
 - Refactor `feishu-user-auth` from single-tenant config to a pure multi-tenant config model with top-level `tenants` and optional `defaultTenant`.
 - Add `--tenant <key>` selection for all config-dependent `feishu-auth` commands, while allowing fallback to `defaultTenant` when configured.
 - Keep token storage keyed by real `appId` so existing app-bound token reuse semantics remain intact.
@@ -14,6 +18,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `douyin-video-fetch` and `video-analysis`.
 - Update `skills/feishu-user-auth/SKILL.md`, `skills/feishu-user-auth/config.json`, and CLI help text to document tenant-based usage and the new config shape.
 - Update `skills/wechat-mp-scraper/SKILL.md` and `AGENTS.md` to document the checked-in sample export path.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `xhs-text2image`.

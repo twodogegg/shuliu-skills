@@ -7,6 +7,8 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `ecommerce-images`: Workflow skill to generate ecommerce product main/detail images by orchestrating existing image generation skills.
 - `sora-video`: Sora video generation via lnapi.com.
 - `douyin-share-info`: Fetch Douyin basic info from share URLs via TikHub Web API.
+- `douyin-video-fetch`: Fetch Douyin video detail data from video/share URLs and optionally download the video file.
+- `video-analysis`: Analyze public video URLs through GeekAI's OpenAI-compatible video chat API.
 - `wechat-mp-scraper`: Scrape public WeChat article pages, export HTML/content/assets, and analyze animation clues.
 - `feishu-user-auth`: Feishu user OAuth/device-flow authorization, scope top-up, and token reuse.
 - `feishu-bitable`: Feishu Bitable operations for records, fields, views, permissions, formulas, and links.
@@ -29,6 +31,10 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/sora-video/scripts/providers/lnapi.ts`: Lnapi.com provider implementation.
 - `skills/douyin-share-info/SKILL.md`: user-facing skill contract and extraction rules for Douyin share parsing.
 - `skills/douyin-share-info/scripts/main.ts`: CLI entrypoint for TikHub API calls and normalized output.
+- `skills/douyin-video-fetch/SKILL.md`: user-facing skill contract for fetching Douyin video info and downloading files.
+- `skills/douyin-video-fetch/scripts/fetch_douyin_video.py`: Python CLI entrypoint for browser-based Douyin detail capture and download.
+- `skills/video-analysis/SKILL.md`: user-facing skill contract for GeekAI/OpenAI-compatible video analysis.
+- `skills/video-analysis/scripts/analyze_video.py`: Python CLI entrypoint for public video URL analysis and transcript-style prompting.
 - `skills/wechat-mp-scraper/SKILL.md`: user-facing skill contract for WeChat public-account article scraping.
 - `skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py`: Python CLI entrypoint for HTML/content/resource extraction.
 - `skills/wechat-mp-scraper/references/output-format.md`: output field reference for generated report/content/resource files.
@@ -58,6 +64,8 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable`
@@ -71,6 +79,10 @@ No build step is required; scripts run directly with Bun.
   - `npx -y bun skills/sora-video/scripts/main.ts --prompt "A running dog" --output video.mp4`
 - Run local Douyin share parsing:
   - `npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyin.com/xxxx/" --json`
+- Run local Douyin video fetch/download:
+  - `python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py --url "https://www.douyin.com/video/7624937951562091782" --json`
+- Run local video analysis:
+  - `python3 skills/video-analysis/scripts/analyze_video.py --video-url "https://example.com/video.mp4" --model "qwen3.6-plus"`
 - Run local WeChat article scraping:
   - `python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py "https://mp.weixin.qq.com/s/xxxx" --output-dir ~/wechat-mp-scraper-runs`
 - Run local Feishu user auth flow:
@@ -114,8 +126,10 @@ There is no formal test suite yet. Validate behavior with smoke tests:
 4. Verify required env var behavior (`LNAPI_KEY` and `GEEKAI_API_KEY` missing should fail clearly).
 5. Run one Douyin share-url command and confirm normalized JSON fields are present.
 6. Verify required env var behavior (`TIKHUB_API_KEY` missing should fail clearly).
-7. Run one Xiaohongshu `create` command against a logged-in browser session and confirm `download_path` is returned.
-8. Run one Xiaohongshu `catalog` command and confirm `theme_catalog/overview.jpg` plus per-theme images are created.
+7. Run one Douyin video-fetch command against a real video URL and confirm `aweme_id`, `play_url`, and optional `downloaded_path` are present.
+8. Run one video-analysis command against a public video URL and confirm `content` plus `usage` are returned.
+9. Run one Xiaohongshu `create` command against a logged-in browser session and confirm `download_path` is returned.
+10. Run one Xiaohongshu `catalog` command and confirm `theme_catalog/overview.jpg` plus per-theme images are created.
 
 When adding tests later, place them under each skill path (for example `skills/banana-proxy/tests/` or `skills/douyin-share-info/tests/`) and name files `*.test.ts`.
 

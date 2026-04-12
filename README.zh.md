@@ -12,6 +12,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
+npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
+npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
@@ -30,6 +32,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
+npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
+npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
@@ -44,7 +48,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 |------|------|----------|
 | **image-generation-skills** | 图片生成后端 | [banana-proxy](#banana-proxy)、[geek-image](#geek-image)、[ecommerce-images](#ecommerce-images) |
 | **video-generation-skills** | 视频生成后端 | [sora-video](#sora-video) |
-| **douyin-tools** | 抖音分享链接解析工具 | [douyin-share-info](#douyin-share-info) |
+| **douyin-tools** | 抖音视频解析与下载工具 | [douyin-share-info](#douyin-share-info)、[douyin-video-fetch](#douyin-video-fetch) |
+| **video-analysis-tools** | 视频分析与转录工具 | [video-analysis](#video-analysis) |
 | **wechat-tools** | 微信公众号文章抓取工具 | [wechat-mp-scraper](#wechat-mp-scraper) |
 | **feishu-tools** | 飞书授权、交互卡片、原生审批、token 复用与多维表格工具 | [feishu-user-auth](#feishu-user-auth)、[feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval)、[feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | 小红书创作工作流 | [xhs-text2image](#xhs-text2image) |
@@ -99,6 +104,55 @@ npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyi
 环境变量：
 
 - `TIKHUB_API_KEY`（必填）
+
+### douyin-video-fetch
+
+用于抖音视频页或分享链接的浏览器抓取，输出结构化视频信息，并可直接把视频文件下载到本地。
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  --url "https://www.douyin.com/video/7624937951562091782" \
+  --download \
+  --output /tmp/douyin-7624937951562091782.mp4
+```
+
+主要输出：
+
+- `aweme_id`
+- `desc`
+- `author`
+- `cover_url`
+- `audio_url`
+- `play_url`
+- `download_url`
+- `downloaded_path`
+
+### video-analysis
+
+用于把公网视频 URL 送进 GeekAI/OpenAI 兼容视频接口，返回视频观点分析、转录和摘要结果。
+
+```bash
+python3 skills/video-analysis/scripts/analyze_video.py \
+  --video-url "https://example.com/video.mp4" \
+  --model "qwen3.6-plus"
+```
+
+也支持直接读取 `douyin-video-fetch` 的输出 JSON：
+
+```bash
+python3 skills/video-analysis/scripts/analyze_video.py \
+  --video-info-json /tmp/douyin-detail.json
+```
+
+环境变量：
+
+- `GEEKAI_API_KEY`（必填）
+- `GEEKAI_BASE_URL`（可选，默认 `https://geekai.co/api/v1`）
+
+注意：
+
+- 这个 skill 依赖上游模型服务主动下载视频 URL
+- 抖音临时直链有时会被第三方服务拦截，遇到这种情况需要换成稳定公网 URL
 
 ### wechat-mp-scraper
 

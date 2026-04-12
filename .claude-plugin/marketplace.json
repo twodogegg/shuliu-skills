@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.20"
+    "version": "0.2.21"
   },
   "plugins": [
     {
@@ -30,11 +30,21 @@
     },
     {
       "name": "douyin-tools",
-      "description": "抖音分享链接解析工具",
+      "description": "抖音视频解析、直链提取与下载工具",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/douyin-share-info"
+        "./skills/douyin-share-info",
+        "./skills/douyin-video-fetch"
+      ]
+    },
+    {
+      "name": "video-analysis-tools",
+      "description": "视频分析与转录工具",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/video-analysis"
       ]
     },
     {
