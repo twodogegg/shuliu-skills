@@ -3,6 +3,9 @@
 ## Unreleased
 
 ### 变更
+- 将 `douyin-video-fetch` 升级为子命令 CLI（`video`、`audio`、`cover`、`all`），并新增音频、封面直下能力。
+- 新增对 `jingxuan?modal_id=...` 与 `jingxuan.douyin.com/m/video/...` 输入的归一化处理，抓取前自动转换为标准视频页。
+- 将 `.claude-plugin/marketplace.json` 元数据版本升级到 `0.2.22`。
 - 新增 `douyin-video-fetch` skill：用于浏览器抓取抖音视频详情，并可按视频页或分享链接直接下载视频文件。
 - 新增 `video-analysis` skill：用于通过 GeekAI 的 OpenAI 兼容视频接口分析公网视频。
 - 在现有 `douyin-tools` 插件分组中注册 `./skills/douyin-video-fetch`。
@@ -18,6 +21,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `skills/douyin-video-fetch/SKILL.md`、`README.md`、`README.zh.md` 与 `AGENTS.md`，改为说明新的子命令用法与资源下载示例。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `douyin-video-fetch` 和 `video-analysis` 的安装与使用说明。
 - 更新 `skills/feishu-user-auth/SKILL.md`、`skills/feishu-user-auth/config.json` 和 CLI 帮助文案，改为说明 tenant 化调用方式与新的配置结构。
 - 更新 `skills/wechat-mp-scraper/SKILL.md` 与 `AGENTS.md`，补充仓库内置样例导出路径。

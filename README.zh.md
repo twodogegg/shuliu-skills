@@ -107,12 +107,12 @@ npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyi
 
 ### douyin-video-fetch
 
-用于抖音视频页或分享链接的浏览器抓取，输出结构化视频信息，并可直接把视频文件下载到本地。
+用于抖音视频页、精选页或分享链接的浏览器抓取，支持按子命令提取视频、音频、封面或全部资源。
 
 ```bash
 python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  video \
   --url "https://www.douyin.com/video/7624937951562091782" \
-  --download \
   --output /tmp/douyin-7624937951562091782.mp4
 ```
 
@@ -121,11 +121,28 @@ python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
 - `aweme_id`
 - `desc`
 - `author`
+- `normalized_url`
 - `cover_url`
 - `audio_url`
 - `play_url`
 - `download_url`
-- `downloaded_path`
+- `downloaded_paths`
+
+更多示例：
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  audio \
+  --url "https://www.douyin.com/jingxuan?modal_id=7603361114428050722" \
+  --output /tmp/douyin-7603361114428050722.mp3
+```
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  all \
+  --url "https://v.douyin.com/xxxx/" \
+  --output-dir /tmp/douyin-assets
+```
 
 ### video-analysis
 

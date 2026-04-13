@@ -107,12 +107,12 @@ Environment variable:
 
 ### douyin-video-fetch
 
-Browser-based Douyin video fetching for video pages or share URLs, with optional file download.
+Browser-based Douyin video fetching for video pages, jingxuan pages, or share URLs, with subcommands for video, audio, cover, or all assets.
 
 ```bash
 python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  video \
   --url "https://www.douyin.com/video/7624937951562091782" \
-  --download \
   --output /tmp/douyin-7624937951562091782.mp4
 ```
 
@@ -121,11 +121,28 @@ Key output fields:
 - `aweme_id`
 - `desc`
 - `author`
+- `normalized_url`
 - `cover_url`
 - `audio_url`
 - `play_url`
 - `download_url`
-- `downloaded_path`
+- `downloaded_paths`
+
+Additional examples:
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  audio \
+  --url "https://www.douyin.com/jingxuan?modal_id=7603361114428050722" \
+  --output /tmp/douyin-7603361114428050722.mp3
+```
+
+```bash
+python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py \
+  all \
+  --url "https://v.douyin.com/xxxx/" \
+  --output-dir /tmp/douyin-assets
+```
 
 ### video-analysis
 

@@ -80,7 +80,7 @@ No build step is required; scripts run directly with Bun.
 - Run local Douyin share parsing:
   - `npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyin.com/xxxx/" --json`
 - Run local Douyin video fetch/download:
-  - `python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py --url "https://www.douyin.com/video/7624937951562091782" --json`
+  - `python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py video --url "https://www.douyin.com/video/7624937951562091782"`
 - Run local video analysis:
   - `python3 skills/video-analysis/scripts/analyze_video.py --video-url "https://example.com/video.mp4" --model "qwen3.6-plus"`
 - Run local WeChat article scraping:
