@@ -15,6 +15,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `feishu-approval`: Feishu native approval documentation skill covering approval definitions, form controls, external options, approval instances, and troubleshooting.
 - `feishu-card`: Feishu interactive card documentation skill covering card JSON structure, sending, callbacks, and updates.
 - `xhs-text2image`: Xiaohongshu text-to-image automation skill for logged-in creator sessions, theme switching, and bundled theme preview assets.
+- `skills-manager`: Skills CLI management helper for listing, finding, installing, removing, updating, restoring, and syncing skills, including local-path installs.
 
 - `.claude-plugin/marketplace.json`: marketplace metadata, plugin groups, and skill registration.
 - `skills/banana-proxy/SKILL.md`: user-facing skill contract and usage docs.
@@ -52,6 +53,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/xhs-text2image/SKILL.md`: user-facing skill contract for Xiaohongshu text-to-image generation, theme updates, and preview catalog routing.
 - `skills/xhs-text2image/scripts/xhs_text2image.py`: Python CLI entrypoint for create/update/download/status/themes/catalog flows.
 - `skills/xhs-text2image/theme_catalog/`: bundled overview image, manifest, and per-theme sample images for fast customer previews.
+- `skills/skills-manager/SKILL.md`: user-facing skill contract for managing installed skills through the `skills` CLI.
 - `README.md` / `README.zh.md`: install and update instructions.
 - `CHANGELOG.md` / `CHANGELOG.zh.md`: release notes.
 
@@ -72,6 +74,7 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill skills-manager`
 - Run local generation:
   - `npx -y bun skills/banana-proxy/scripts/main.ts --prompt "A cat" --image out.jpg`
   - `npx -y bun skills/geek-image/scripts/main.ts --prompt "A cat" --image out.png`

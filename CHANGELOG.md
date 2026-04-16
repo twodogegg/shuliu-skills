@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Changes
+- Restore and add the `skills-manager` skill for managing installed skills through the `skills` CLI, including local-path installs and Chinese action phrases.
 - Update `douyin-video-fetch` to a subcommand CLI (`video`, `audio`, `cover`, `all`) and add direct download support for audio and cover assets.
 - Normalize Douyin `jingxuan?modal_id=...` and `jingxuan.douyin.com/m/video/...` inputs into standard video-page fetches before capturing `aweme/detail`.
 - Bump `.claude-plugin/marketplace.json` metadata version to `0.2.22`.
@@ -21,6 +22,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `AGENTS.md` with install and repository guidance for `skills-manager`.
 - Update `skills/douyin-video-fetch/SKILL.md`, `README.md`, `README.zh.md`, and `AGENTS.md` for the new subcommand-based usage and asset-download examples.
 - Refresh `skills/feishu-approval/` with a new compact entry skill plus expanded reference coverage for approval definitions, instances, task actions, and token/ID handling details.
 - Refresh `skills/feishu-bitable/SKILL.md` with richer record-writing guidance, a fuller request example, and clearer field-inspection reminders.

@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### 变更
+- 恢复并新增 `skills-manager` skill：用于通过 `skills` CLI 管理已安装 skills，支持本地路径安装和中文动作表达。
 - 将 `douyin-video-fetch` 升级为子命令 CLI（`video`、`audio`、`cover`、`all`），并新增音频、封面直下能力。
 - 新增对 `jingxuan?modal_id=...` 与 `jingxuan.douyin.com/m/video/...` 输入的归一化处理，抓取前自动转换为标准视频页。
 - 将 `.claude-plugin/marketplace.json` 元数据版本升级到 `0.2.22`。
@@ -21,6 +22,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `AGENTS.md`，补充 `skills-manager` 的安装入口与仓库内技能说明。
 - 更新 `skills/douyin-video-fetch/SKILL.md`、`README.md`、`README.zh.md` 与 `AGENTS.md`，改为说明新的子命令用法与资源下载示例。
 - 刷新 `skills/feishu-approval/`：重写主技能入口，并补齐审批定义、审批实例、任务动作、token/用户 ID 作用域等参考文档。
 - 刷新 `skills/feishu-bitable/SKILL.md`：补充更完整的记录写入示例、写值规则与字段排查提醒。
