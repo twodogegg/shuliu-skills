@@ -22,6 +22,8 @@
 
 ### 文档
 - 更新 `skills/douyin-video-fetch/SKILL.md`、`README.md`、`README.zh.md` 与 `AGENTS.md`，改为说明新的子命令用法与资源下载示例。
+- 刷新 `skills/feishu-approval/`：重写主技能入口，并补齐审批定义、审批实例、任务动作、token/用户 ID 作用域等参考文档。
+- 刷新 `skills/feishu-bitable/SKILL.md`：补充更完整的记录写入示例、写值规则与字段排查提醒。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `douyin-video-fetch` 和 `video-analysis` 的安装与使用说明。
 - 更新 `skills/feishu-user-auth/SKILL.md`、`skills/feishu-user-auth/config.json` 和 CLI 帮助文案，改为说明 tenant 化调用方式与新的配置结构。
 - 更新 `skills/wechat-mp-scraper/SKILL.md` 与 `AGENTS.md`，补充仓库内置样例导出路径。

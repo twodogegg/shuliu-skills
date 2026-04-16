@@ -22,6 +22,8 @@
 
 ### Documentation
 - Update `skills/douyin-video-fetch/SKILL.md`, `README.md`, `README.zh.md`, and `AGENTS.md` for the new subcommand-based usage and asset-download examples.
+- Refresh `skills/feishu-approval/` with a new compact entry skill plus expanded reference coverage for approval definitions, instances, task actions, and token/ID handling details.
+- Refresh `skills/feishu-bitable/SKILL.md` with richer record-writing guidance, a fuller request example, and clearer field-inspection reminders.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `douyin-video-fetch` and `video-analysis`.
 - Update `skills/feishu-user-auth/SKILL.md`, `skills/feishu-user-auth/config.json`, and CLI help text to document tenant-based usage and the new config shape.
 - Update `skills/wechat-mp-scraper/SKILL.md` and `AGENTS.md` to document the checked-in sample export path.
