@@ -181,6 +181,15 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
   --output-dir ~/wechat-mp-scraper-runs
 ```
 
+如果只需要正文 Markdown 和 JSON，不下载素材：
+
+```bash
+python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
+  "https://mp.weixin.qq.com/s/xxxx" \
+  --mode markdown \
+  --output-dir ~/wechat-mp-scraper-runs
+```
+
 主要输出：
 
 - `article.html`

@@ -131,6 +131,19 @@ def parse_args():
     parser = argparse.ArgumentParser(description="抓取并拆解微信公众号文章页")
     parser.add_argument("url", help="公众号文章链接，例如 https://mp.weixin.qq.com/s/...")
     parser.add_argument(
+        "--mode",
+        choices=["full", "markdown"],
+        default="full",
+        help="输出模式：full 生成完整抓取结果；markdown 只导出正文 Markdown/JSON，默认 full",
+    )
+    parser.add_argument(
+        "--markdown-only",
+        action="store_const",
+        const="markdown",
+        dest="mode",
+        help="等同于 --mode markdown，只导出正文 Markdown/JSON",
+    )
+    parser.add_argument(
         "--output-dir",
         default=DEFAULT_OUTPUT_DIR,
         help=f"输出根目录，默认 {DEFAULT_OUTPUT_DIR}",
@@ -515,6 +528,28 @@ def main():
     slug = slugify(title, args.url)
 
     output_dir = Path(args.output_dir).expanduser() / slug
+    content_blocks = extract_content_blocks(html_text)
+    metadata = {
+        "title": title,
+        "author": author,
+        "publish_time": publish_time,
+        "digest": digest,
+    }
+    if args.mode == "markdown":
+        write_content_outputs(output_dir, metadata, content_blocks, {})
+        print(
+            json.dumps(
+                {
+                    "status": "ok",
+                    "mode": args.mode,
+                    "title": title,
+                    "output_dir": str(output_dir),
+                },
+                ensure_ascii=False,
+            )
+        )
+        return
+
     assets_dir = output_dir / "assets"
     snippets_dir = output_dir / "snippets"
     assets_dir.mkdir(parents=True, exist_ok=True)
@@ -530,13 +565,6 @@ def main():
 
     downloads = download_assets(all_resource_urls, assets_dir, args.max_downloads)
     download_mapping = build_download_mapping(downloads)
-    content_blocks = extract_content_blocks(html_text)
-    metadata = {
-        "title": title,
-        "author": author,
-        "publish_time": publish_time,
-        "digest": digest,
-    }
     write_content_outputs(output_dir, metadata, content_blocks, download_mapping)
 
     snippet_text = []
@@ -583,7 +611,12 @@ def main():
     write_text(output_dir / "urls.json", json.dumps(result, ensure_ascii=False, indent=2))
     generate_report(output_dir, result)
 
-    print(json.dumps({"status": "ok", "title": title, "output_dir": str(output_dir)}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {"status": "ok", "mode": args.mode, "title": title, "output_dir": str(output_dir)},
+            ensure_ascii=False,
+        )
+    )
 
 
 if __name__ == "__main__":

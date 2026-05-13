@@ -181,6 +181,15 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
   --output-dir ~/wechat-mp-scraper-runs
 ```
 
+To export only article body Markdown and JSON without downloading assets:
+
+```bash
+python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
+  "https://mp.weixin.qq.com/s/xxxx" \
+  --mode markdown \
+  --output-dir ~/wechat-mp-scraper-runs
+```
+
 Outputs include:
 
 - `article.html`

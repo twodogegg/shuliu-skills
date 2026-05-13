@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### 变更
+- 为 `wechat-mp-scraper` 新增正文 Markdown-only 模式，可通过 `--mode markdown` / `--markdown-only` 只导出 `content.md` 和 `content.json`，不下载素材也不生成动画分析报告。
 - 恢复并新增 `skills-manager` skill：用于通过 `skills` CLI 管理已安装 skills，支持本地路径安装和中文动作表达。
 - 将 `douyin-video-fetch` 升级为子命令 CLI（`video`、`audio`、`cover`、`all`），并新增音频、封面直下能力。
 - 新增对 `jingxuan?modal_id=...` 与 `jingxuan.douyin.com/m/video/...` 输入的归一化处理，抓取前自动转换为标准视频页。
@@ -22,6 +23,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 在 skill 文档、README 文件和本地命令说明中补充 `wechat-mp-scraper` 的正文 Markdown-only 导出模式。
 - 更新 `AGENTS.md`，补充 `skills-manager` 的安装入口与仓库内技能说明。
 - 更新 `skills/douyin-video-fetch/SKILL.md`、`README.md`、`README.zh.md` 与 `AGENTS.md`，改为说明新的子命令用法与资源下载示例。
 - 刷新 `skills/feishu-approval/`：重写主技能入口，并补齐审批定义、审批实例、任务动作、token/用户 ID 作用域等参考文档。

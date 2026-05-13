@@ -26,6 +26,7 @@ description: "抓取和拆解微信公众号文章页。只要用户提到“微
 - 抓取公众号文章 HTML
 - 分析公众号文章里的图片、背景图、动画、实现方式
 - 下载正文素材到本地
+- 只读取公众号正文并导出 Markdown
 - 针对 `mp.weixin.qq.com/s/...` 链接生成报告
 
 ## 默认流程
@@ -43,6 +44,18 @@ description: "抓取和拆解微信公众号文章页。只要用户提到“微
 python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --output-dir "<输出目录>"
 ```
 
+如果用户只要正文 Markdown，不需要原始 HTML、素材下载、资源清单或动画分析，使用轻量模式：
+
+```bash
+python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --mode markdown --output-dir "<输出目录>"
+```
+
+也可以使用等价别名：
+
+```bash
+python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --markdown-only --output-dir "<输出目录>"
+```
+
 如果用户没给输出目录，默认建议放到：
 
 ```bash
@@ -51,7 +64,7 @@ python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --output-dir "
 
 ## 输出目录结构
 
-脚本会生成如下内容：
+默认 `full` 模式会生成如下内容：
 
 ```text
 <output-dir>/<slug>/
@@ -67,6 +80,14 @@ python3 ${SKILL_DIR}/scripts/scrape_wechat_mp.py "<文章链接>" --output-dir "
 └── snippets/
     ├── animation-snippets.txt
     └── matched-blocks.html
+```
+
+`markdown` 模式只生成：
+
+```text
+<output-dir>/<slug>/
+├── content.md
+└── content.json
 ```
 
 需要解释实现方式时，重点看：

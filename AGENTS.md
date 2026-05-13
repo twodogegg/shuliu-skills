@@ -88,6 +88,8 @@ No build step is required; scripts run directly with Bun.
   - `python3 skills/video-analysis/scripts/analyze_video.py --video-url "https://example.com/video.mp4" --model "qwen3.6-plus"`
 - Run local WeChat article scraping:
   - `python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py "https://mp.weixin.qq.com/s/xxxx" --output-dir ~/wechat-mp-scraper-runs`
+- Run local WeChat article Markdown-only export:
+  - `python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py "https://mp.weixin.qq.com/s/xxxx" --mode markdown --output-dir ~/wechat-mp-scraper-runs`
 - Run local Feishu user auth flow:
   - Installed skill usage in a project: `./.agents/skills/feishu-user-auth/bin/feishu-auth.js auth`
   - Installed skill usage after `-g`: `~/.agents/skills/feishu-user-auth/bin/feishu-auth.js auth`
