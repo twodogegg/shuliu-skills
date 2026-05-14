@@ -10,6 +10,7 @@
 npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
 npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
+npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
@@ -30,6 +31,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
 npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
+npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
@@ -46,7 +48,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 
 | 插件 | 说明 | 包含技能 |
 |------|------|----------|
-| **image-generation-skills** | 图片生成后端 | [banana-proxy](#banana-proxy)、[geek-image](#geek-image)、[ecommerce-images](#ecommerce-images) |
+| **image-generation-skills** | 图片生成后端与工作流 | [banana-proxy](#banana-proxy)、[geek-image](#geek-image)、[ecommerce-images](#ecommerce-images)、[multi-image-consistency](#multi-image-consistency) |
 | **video-generation-skills** | 视频生成后端 | [sora-video](#sora-video) |
 | **douyin-tools** | 抖音视频解析与下载工具 | [douyin-share-info](#douyin-share-info)、[douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | 视频分析与转录工具 | [video-analysis](#video-analysis) |
@@ -212,6 +214,18 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
 以自然语言触发即可，例如：
 - “基于 `/path/product.png` 生成主图和详情图”
 - “生成详情图，做 5 张，参数规格风格”
+
+### multi-image-consistency
+
+用于多图项目的一致性提示词工作流，适合需要一组图片保持连续视觉身份的场景。
+
+- 先创建 master style anchor，再生成后续匹配提示词
+- 适用于 UI 界面组、漫画、分镜、campaign 系列、角色设定图和插画组图
+- 跨图片保持角色、场景、配色、字体气质、道具和整体 visual language 一致
+
+以 PRD、分镜、脚本、campaign brief 或图片清单触发即可，例如：
+- “把这个分镜脚本转成一组风格一致的生图提示词”
+- “根据这个 PRD 生成 8 张一致的产品 UI 截图提示词”
 
 ### feishu-user-auth
 

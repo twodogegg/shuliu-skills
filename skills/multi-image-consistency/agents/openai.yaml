@@ -1,0 +1,15 @@
+interface:
+  display_name: Multi Image Consistency
+  short_description: Build a style anchor and matched prompts for multi-image sets.
+  category: creativity
+  icon: image
+  accent_color: '#6D5EF7'
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

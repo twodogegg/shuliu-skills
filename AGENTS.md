@@ -5,6 +5,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `banana-proxy`: Gemini image generation via Banana proxy.
 - `geek-image`: GeekAI image generation via geekai.co.
 - `ecommerce-images`: Workflow skill to generate ecommerce product main/detail images by orchestrating existing image generation skills.
+- `multi-image-consistency`: Prompt workflow skill for multi-image generation projects that need strong cross-image consistency.
 - `sora-video`: Sora video generation via lnapi.com.
 - `douyin-share-info`: Fetch Douyin basic info from share URLs via TikHub Web API.
 - `douyin-video-fetch`: Fetch Douyin video detail data from video/share URLs and optionally download the video file.
@@ -27,6 +28,8 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/geek-image/scripts/providers/geekai.ts`: GeekAI provider implementation.
 - `skills/geek-image/scripts/types.ts`: shared TypeScript types.
 - `skills/ecommerce-images/SKILL.md`: user-facing skill contract and usage docs for ecommerce images.
+- `skills/multi-image-consistency/SKILL.md`: user-facing skill contract for style-anchor and matched-prompt workflows.
+- `skills/multi-image-consistency/references/*.md`: output template and consistency playbook for multi-image prompt sets.
 - `skills/sora-video/SKILL.md`: user-facing skill contract.
 - `skills/sora-video/scripts/main.ts`: CLI entrypoint.
 - `skills/sora-video/scripts/providers/lnapi.ts`: Lnapi.com provider implementation.
@@ -64,6 +67,7 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch`

@@ -10,6 +10,7 @@ Local skills marketplace following the `jimliu/baoyu-skills` structure.
 npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
 npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
+npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
@@ -30,6 +31,7 @@ When the skill is updated in this repository, reinstall the latest version:
 npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
 npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
+npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
 npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
@@ -46,7 +48,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 
 | Plugin | Description | Skills |
 |--------|-------------|--------|
-| **image-generation-skills** | Image generation backends | [banana-proxy](#banana-proxy), [geek-image](#geek-image), [ecommerce-images](#ecommerce-images) |
+| **image-generation-skills** | Image generation backends and workflows | [banana-proxy](#banana-proxy), [geek-image](#geek-image), [ecommerce-images](#ecommerce-images), [multi-image-consistency](#multi-image-consistency) |
 | **video-generation-skills** | Video generation backends | [sora-video](#sora-video) |
 | **douyin-tools** | Douyin video parsing and download | [douyin-share-info](#douyin-share-info), [douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | Video analysis and transcript workflows | [video-analysis](#video-analysis) |
@@ -212,6 +214,18 @@ Workflow skill for generating ecommerce product main images and detail images fr
 Use this skill by asking in natural language, for example:
 - "Generate ecommerce main image and detail image from `/path/product.png`"
 - "Generate 5 detail images in specification-focused style"
+
+### multi-image-consistency
+
+Prompt workflow skill for multi-image projects that need visual continuity across a series.
+
+- Creates a master style anchor first, then matched follow-on prompts
+- Useful for UI screen sets, comics, storyboards, campaign series, character sheets, and illustration packs
+- Preserves stable characters, settings, palette, typography feel, props, and visual language across images
+
+Use this skill by providing a PRD, storyboard, script, campaign brief, or image list, for example:
+- "Turn this storyboard into consistent image-generation prompts"
+- "Build prompts for 8 matching product UI screenshots from this PRD"
 
 ### feishu-user-auth
 

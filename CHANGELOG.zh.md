@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### 变更
+- 新增 `multi-image-consistency` skill：用于多图生成项目，先建立风格锚点，再产出保持一致性的成套提示词。
+- 在 `image-generation-skills` 插件分组中注册 `./skills/multi-image-consistency`，并将 `.claude-plugin/marketplace.json` 元数据版本升级到 `0.2.23`。
 - 为 `wechat-mp-scraper` 新增正文 Markdown-only 模式，可通过 `--mode markdown` / `--markdown-only` 只导出 `content.md` 和 `content.json`，不下载素材也不生成动画分析报告。
 - 恢复并新增 `skills-manager` skill：用于通过 `skills` CLI 管理已安装 skills，支持本地路径安装和中文动作表达。
 - 将 `douyin-video-fetch` 升级为子命令 CLI（`video`、`audio`、`cover`、`all`），并新增音频、封面直下能力。
@@ -23,6 +25,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `multi-image-consistency` 的安装与使用说明。
 - 在 skill 文档、README 文件和本地命令说明中补充 `wechat-mp-scraper` 的正文 Markdown-only 导出模式。
 - 更新 `AGENTS.md`，补充 `skills-manager` 的安装入口与仓库内技能说明。
 - 更新 `skills/douyin-video-fetch/SKILL.md`、`README.md`、`README.zh.md` 与 `AGENTS.md`，改为说明新的子命令用法与资源下载示例。

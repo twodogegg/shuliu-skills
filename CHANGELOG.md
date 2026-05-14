@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Changes
+- Add new skill `multi-image-consistency` for building a style anchor and matched prompt sets for multi-image generation projects.
+- Register `./skills/multi-image-consistency` in the `image-generation-skills` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.23`.
 - Add a Markdown-only mode to `wechat-mp-scraper` via `--mode markdown` / `--markdown-only`, exporting only `content.md` and `content.json` without asset downloads or animation reports.
 - Restore and add the `skills-manager` skill for managing installed skills through the `skills` CLI, including local-path installs and Chinese action phrases.
 - Update `douyin-video-fetch` to a subcommand CLI (`video`, `audio`, `cover`, `all`) and add direct download support for audio and cover assets.
@@ -23,6 +25,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `multi-image-consistency`.
 - Document the `wechat-mp-scraper` Markdown-only export mode in the skill docs, README files, and local command guidance.
 - Update `AGENTS.md` with install and repository guidance for `skills-manager`.
 - Update `skills/douyin-video-fetch/SKILL.md`, `README.md`, `README.zh.md`, and `AGENTS.md` for the new subcommand-based usage and asset-download examples.

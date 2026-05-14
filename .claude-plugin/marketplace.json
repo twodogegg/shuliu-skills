@@ -5,18 +5,19 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.22"
+    "version": "0.2.23"
   },
   "plugins": [
     {
       "name": "image-generation-skills",
-      "description": "Image generation backends",
+      "description": "Image generation backends and workflows",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/banana-proxy",
         "./skills/geek-image",
-        "./skills/ecommerce-images"
+        "./skills/ecommerce-images",
+        "./skills/multi-image-consistency"
       ]
     },
     {
