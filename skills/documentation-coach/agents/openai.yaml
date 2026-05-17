@@ -1,0 +1,11 @@
+interface:
+  display_name: Documentation Coach
+  short_description: Guide software project documentation with structures, templates,
+    and maintenance advice
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
