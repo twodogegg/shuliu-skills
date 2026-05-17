@@ -1,0 +1,9 @@
+interface:
+  display_name: AI Cover Prompt Builder
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
