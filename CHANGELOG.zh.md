@@ -3,6 +3,12 @@
 ## Unreleased
 
 ### 变更
+- 新增 `newapi` skill：用于 NewAPI 用户侧模型、分组、余额、令牌与安全用 token 工作流。
+- 新增 `newapi-admin` skill：用于 NewAPI 后台的渠道、用户、分组、倍率、日志、认证与系统配置管理。
+- 新增 `newapi-tools` 插件分组并注册 `./skills/newapi` 与 `./skills/newapi-admin`，同时将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.25`。
+- 新增 `video-viral-analysis` skill：用于带数据的短视频爆款复盘、问题诊断和可复刻模板提取。
+- 在 `video-analysis-tools` 插件分组中注册 `./skills/video-viral-analysis`。
+- 为 `douyin-video-fetch` 新增标准化 `statistics` 输出，包含来自 `aweme_detail.hot_list.view_count` 的抖音播放量，以及评论、点赞、收藏、分享、推荐和赞赏数据。
 - 新增 `multi-image-consistency` skill：用于多图生成项目，先建立风格锚点，再产出保持一致性的成套提示词。
 - 在 `image-generation-skills` 插件分组中注册 `./skills/multi-image-consistency`，并将 `.claude-plugin/marketplace.json` 元数据版本升级到 `0.2.23`。
 - 为 `wechat-mp-scraper` 新增正文 Markdown-only 模式，可通过 `--mode markdown` / `--markdown-only` 只导出 `content.md` 和 `content.json`，不下载素材也不生成动画分析报告。
@@ -25,6 +31,9 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `newapi` 和 `newapi-admin` 的安装与使用说明。
+- 在 `.gitignore` 中忽略 skill 目录下的 `.env` 与 `.session.json`，避免提交本地凭据和会话文件。
+- 更新 `skills/douyin-video-fetch/SKILL.md` 和 `AGENTS.md`，补充统计数据输出与 `video-viral-analysis` 使用说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `multi-image-consistency` 的安装与使用说明。
 - 在 skill 文档、README 文件和本地命令说明中补充 `wechat-mp-scraper` 的正文 Markdown-only 导出模式。
 - 更新 `AGENTS.md`，补充 `skills-manager` 的安装入口与仓库内技能说明。

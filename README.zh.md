@@ -21,6 +21,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 ```
 
 ## 更新技能
@@ -42,6 +44,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 ```
 
 ## 可用插件
@@ -55,6 +59,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 | **wechat-tools** | 微信公众号文章抓取工具 | [wechat-mp-scraper](#wechat-mp-scraper) |
 | **feishu-tools** | 飞书授权、交互卡片、原生审批、token 复用与多维表格工具 | [feishu-user-auth](#feishu-user-auth)、[feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval)、[feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | 小红书创作工作流 | [xhs-text2image](#xhs-text2image) |
+| **newapi-tools** | NewAPI 用户侧查询与后台管理工具 | [newapi](#newapi)、[newapi-admin](#newapi-admin) |
 
 ## 可用技能
 
@@ -325,3 +330,52 @@ python3 skills/xhs-text2image/scripts/xhs_text2image.py catalog --port 9444 --te
 - Python 3
 - `playwright` 与 `Pillow`
 - 已登录小红书创作平台的 Chrome / Chromium，并通过 `9444` 之类的 CDP 端口开放调试
+
+### newapi
+
+用于开源统一网关 `new-api` 的文档加脚本型 skill。
+
+- 覆盖用户侧模型、分组、余额、令牌等查询与管理
+- 自带安全 token 工具，可复制到剪贴板、注入配置文件，或在命令执行时安全替换，不暴露真实 `sk-`
+- 强制优先复用 skill 自带脚本，不手写 `curl`
+
+常用动作：
+
+```bash
+/newapi models
+/newapi balance
+/newapi tokens
+/newapi create-token my-key --group=default
+/newapi copy-token 12
+/newapi apply-token 12 ~/.codex/auth.json
+/newapi exec-token 12 openai api models.list
+```
+
+注意：
+
+- 首次使用先看 `skills/newapi/docs/setup.md`
+- 不要在聊天、日志、文件或命令参数里打印 token 明文
+- 需要查看配置结构时，用 `scan-config` 获取尽力脱敏后的结果
+
+### newapi-admin
+
+用于 NewAPI 后台管理的 skill，覆盖渠道、用户、模型、分组、额度、日志、系统配置、认证和充值等接口。
+
+- 统一通过 `scripts/api.js` 调后台，自动处理登录、session 复用、字段脱敏和 `New-Api-User` 头
+- 只在明确需要后台管理时使用
+- 支持直接在仓库里调试，也支持安装后调用
+
+示例命令：
+
+```bash
+node skills/newapi-admin/scripts/api.js GET /api/channel/
+node skills/newapi-admin/scripts/api.js GET /api/user/self
+node skills/newapi-admin/scripts/api.js GET /api/pricing
+node skills/newapi-admin/scripts/api.js POST /api/channel/test '{"id":3,"model":"gpt-image-2"}'
+```
+
+注意：
+
+- 在 skill 目录下 `.env` 配置 `NEWAPI_ADMIN_BASE_URL`、`NEWAPI_ADMIN_USERNAME`、`NEWAPI_ADMIN_PASSWORD`、`NEWAPI_ADMIN_USER_ID`，以及可选的 `NEWAPI_ADMIN_ACCESS_TOKEN`
+- 不要暴露密码、session、access token 或渠道 key
+- 更新渠道前先取完整对象，再只改必要字段，避免覆盖其它配置

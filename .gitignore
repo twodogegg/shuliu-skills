@@ -6,3 +6,5 @@ out/
 skills-lock.json
 test/
 .omx/
+skills/*/.env
+skills/*/.session.json

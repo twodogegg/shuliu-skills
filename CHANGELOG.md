@@ -3,6 +3,12 @@
 ## Unreleased
 
 ### Changes
+- Add new skill `newapi` for user-side NewAPI model, group, balance, token, and secure token-application workflows.
+- Add new skill `newapi-admin` for NewAPI backend administration across channels, users, groups, pricing, logs, auth, and system options.
+- Register `./skills/newapi` and `./skills/newapi-admin` in a new `newapi-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.25`.
+- Add new skill `video-viral-analysis` for data-aware short-video viral analysis, bottleneck diagnosis, and reusable template extraction.
+- Register `./skills/video-viral-analysis` in the `video-analysis-tools` plugin group.
+- Add normalized `statistics` output to `douyin-video-fetch`, including Douyin playback count from `aweme_detail.hot_list.view_count` plus comment, like, collect, share, recommend, and admire counts.
 - Add new skill `multi-image-consistency` for building a style anchor and matched prompt sets for multi-image generation projects.
 - Register `./skills/multi-image-consistency` in the `image-generation-skills` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.23`.
 - Add a Markdown-only mode to `wechat-mp-scraper` via `--mode markdown` / `--markdown-only`, exporting only `content.md` and `content.json` without asset downloads or animation reports.
@@ -25,6 +31,9 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `newapi` and `newapi-admin`.
+- Ignore skill-local `.env` and `.session.json` files in `.gitignore` to avoid committing local credentials and sessions.
+- Update `skills/douyin-video-fetch/SKILL.md` and `AGENTS.md` with statistics output and `video-viral-analysis` guidance.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `multi-image-consistency`.
 - Document the `wechat-mp-scraper` Markdown-only export mode in the skill docs, README files, and local command guidance.
 - Update `AGENTS.md` with install and repository guidance for `skills-manager`.

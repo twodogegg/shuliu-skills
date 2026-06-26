@@ -21,6 +21,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 ```
 
 ## Update Skill
@@ -42,6 +44,8 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
+npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 ```
 
 ## Available Plugins
@@ -55,6 +59,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 | **wechat-tools** | WeChat public account article scraping | [wechat-mp-scraper](#wechat-mp-scraper) |
 | **feishu-tools** | Feishu auth, interactive cards, native approval, token reuse, and Bitable operations | [feishu-user-auth](#feishu-user-auth), [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval), [feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | Xiaohongshu creator workflows | [xhs-text2image](#xhs-text2image) |
+| **newapi-tools** | NewAPI end-user queries and admin management | [newapi](#newapi), [newapi-admin](#newapi-admin) |
 
 ## Available Skills
 
@@ -325,3 +330,52 @@ Requirements:
 - Python 3
 - `playwright` and `Pillow`
 - A Chrome / Chromium session already logged in to Xiaohongshu Creator and exposed through a CDP port such as `9444`
+
+### newapi
+
+Documentation-and-script skill for the open-source `new-api` unified gateway.
+
+- Covers user-side model, group, balance, and token operations
+- Includes secure token utilities for clipboard copy, config injection, and command execution without exposing real `sk-` values
+- Requires using the bundled scripts instead of handwritten `curl`
+
+Common actions:
+
+```bash
+/newapi models
+/newapi balance
+/newapi tokens
+/newapi create-token my-key --group=default
+/newapi copy-token 12
+/newapi apply-token 12 ~/.codex/auth.json
+/newapi exec-token 12 openai api models.list
+```
+
+Notes:
+
+- Read `skills/newapi/docs/setup.md` on first use
+- Do not print token values in chat, logs, files, or shell arguments
+- Use `scan-config` for best-effort redacted config inspection
+
+### newapi-admin
+
+Admin-side NewAPI backend management skill for channels, users, models, groups, quotas, logs, options, auth, and payments.
+
+- Uses the bundled `scripts/api.js` wrapper for login, session reuse, masking, and `New-Api-User` header injection
+- Intended for explicit backend administration tasks only
+- Supports repository-local or installed-skill execution
+
+Run examples:
+
+```bash
+node skills/newapi-admin/scripts/api.js GET /api/channel/
+node skills/newapi-admin/scripts/api.js GET /api/user/self
+node skills/newapi-admin/scripts/api.js GET /api/pricing
+node skills/newapi-admin/scripts/api.js POST /api/channel/test '{"id":3,"model":"gpt-image-2"}'
+```
+
+Notes:
+
+- Configure `NEWAPI_ADMIN_BASE_URL`, `NEWAPI_ADMIN_USERNAME`, `NEWAPI_ADMIN_PASSWORD`, `NEWAPI_ADMIN_USER_ID`, and optional `NEWAPI_ADMIN_ACCESS_TOKEN` in the skill-local `.env`
+- Do not expose passwords, sessions, access tokens, or channel keys
+- When editing channels, fetch the full object first and change only the minimum required fields

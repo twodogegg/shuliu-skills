@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.23"
+    "version": "0.2.25"
   },
   "plugins": [
     {
@@ -41,11 +41,12 @@
     },
     {
       "name": "video-analysis-tools",
-      "description": "视频分析与转录工具",
+      "description": "视频分析、转录与爆款复盘工具",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/video-analysis"
+        "./skills/video-analysis",
+        "./skills/video-viral-analysis"
       ]
     },
     {
@@ -76,6 +77,16 @@
       "strict": false,
       "skills": [
         "./skills/xhs-text2image"
+      ]
+    },
+    {
+      "name": "newapi-tools",
+      "description": "NewAPI 用户侧查询与后台管理工具",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/newapi",
+        "./skills/newapi-admin"
       ]
     }
   ]

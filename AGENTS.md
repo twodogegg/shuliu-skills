@@ -10,6 +10,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `douyin-share-info`: Fetch Douyin basic info from share URLs via TikHub Web API.
 - `douyin-video-fetch`: Fetch Douyin video detail data from video/share URLs and optionally download the video file.
 - `video-analysis`: Analyze public video URLs through GeekAI's OpenAI-compatible video chat API.
+- `video-viral-analysis`: Analyze short-video viral potential, performance data, bottlenecks, and reusable content templates.
 - `wechat-mp-scraper`: Scrape public WeChat article pages, export HTML/content/assets, and analyze animation clues.
 - `feishu-user-auth`: Feishu user OAuth/device-flow authorization, scope top-up, and token reuse.
 - `feishu-bitable`: Feishu Bitable operations for records, fields, views, permissions, formulas, and links.
@@ -17,6 +18,8 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `feishu-card`: Feishu interactive card documentation skill covering card JSON structure, sending, callbacks, and updates.
 - `xhs-text2image`: Xiaohongshu text-to-image automation skill for logged-in creator sessions, theme switching, and bundled theme preview assets.
 - `skills-manager`: Skills CLI management helper for listing, finding, installing, removing, updating, restoring, and syncing skills, including local-path installs.
+- `newapi`: User-side NewAPI skill for models, groups, balance, tokens, and secure token application flows.
+- `newapi-admin`: Admin-side NewAPI backend management skill for channels, users, groups, quotas, logs, auth, and system options.
 
 - `.claude-plugin/marketplace.json`: marketplace metadata, plugin groups, and skill registration.
 - `skills/banana-proxy/SKILL.md`: user-facing skill contract and usage docs.
@@ -39,6 +42,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/douyin-video-fetch/scripts/fetch_douyin_video.py`: Python CLI entrypoint for browser-based Douyin detail capture and download.
 - `skills/video-analysis/SKILL.md`: user-facing skill contract for GeekAI/OpenAI-compatible video analysis.
 - `skills/video-analysis/scripts/analyze_video.py`: Python CLI entrypoint for public video URL analysis and transcript-style prompting.
+- `skills/video-viral-analysis/SKILL.md`: user-facing skill contract for data-aware short-video viral analysis.
 - `skills/wechat-mp-scraper/SKILL.md`: user-facing skill contract for WeChat public-account article scraping.
 - `skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py`: Python CLI entrypoint for HTML/content/resource extraction.
 - `skills/wechat-mp-scraper/references/output-format.md`: output field reference for generated report/content/resource files.
@@ -57,6 +61,12 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/xhs-text2image/scripts/xhs_text2image.py`: Python CLI entrypoint for create/update/download/status/themes/catalog flows.
 - `skills/xhs-text2image/theme_catalog/`: bundled overview image, manifest, and per-theme sample images for fast customer previews.
 - `skills/skills-manager/SKILL.md`: user-facing skill contract for managing installed skills through the `skills` CLI.
+- `skills/newapi/SKILL.md`: user-facing skill contract for user-side NewAPI queries and secure token workflows.
+- `skills/newapi/docs/*.md`: action routing, setup, and help docs for the `newapi` skill.
+- `skills/newapi/scripts/*.js`: runtime helpers for NewAPI API calls, token copying, secure config injection, and command execution.
+- `skills/newapi-admin/SKILL.md`: user-facing skill contract for NewAPI backend administration.
+- `skills/newapi-admin/references/*.md|json`: backend endpoint coverage and auth summary references for `newapi-admin`.
+- `skills/newapi-admin/scripts/api.js`: CLI wrapper for authenticated NewAPI admin API access.
 - `README.md` / `README.zh.md`: install and update instructions.
 - `CHANGELOG.md` / `CHANGELOG.zh.md`: release notes.
 
@@ -72,6 +82,7 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill video-viral-analysis`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable`
@@ -79,6 +90,8 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill skills-manager`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin`
 - Run local generation:
   - `npx -y bun skills/banana-proxy/scripts/main.ts --prompt "A cat" --image out.jpg`
   - `npx -y bun skills/geek-image/scripts/main.ts --prompt "A cat" --image out.png`
@@ -90,6 +103,8 @@ No build step is required; scripts run directly with Bun.
   - `python3 skills/douyin-video-fetch/scripts/fetch_douyin_video.py video --url "https://www.douyin.com/video/7624937951562091782"`
 - Run local video analysis:
   - `python3 skills/video-analysis/scripts/analyze_video.py --video-url "https://example.com/video.mp4" --model "qwen3.6-plus"`
+- Use local viral analysis skill:
+  - Load `skills/video-viral-analysis/SKILL.md` and analyze with available video content plus optional playback/interaction data.
 - Run local WeChat article scraping:
   - `python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py "https://mp.weixin.qq.com/s/xxxx" --output-dir ~/wechat-mp-scraper-runs`
 - Run local WeChat article Markdown-only export:
@@ -107,6 +122,14 @@ No build step is required; scripts run directly with Bun.
 - Run local Xiaohongshu text-to-image generation:
   - `python3 skills/xhs-text2image/scripts/xhs_text2image.py create --port 9444 --text "小红书主题测试" --theme 科技`
   - `python3 skills/xhs-text2image/scripts/xhs_text2image.py catalog --port 9444 --text "小红书主题测试"`
+- Run local NewAPI user-side actions:
+  - `node skills/newapi/scripts/api.js models`
+  - `node skills/newapi/scripts/api.js balance`
+  - `node skills/newapi/scripts/inject-key.js --scan /path/to/config.json`
+  - `node skills/newapi/scripts/exec-token.js <token-id> openai api models.list`
+- Run local NewAPI admin API calls:
+  - `node skills/newapi-admin/scripts/api.js GET /api/channel/`
+  - `node skills/newapi-admin/scripts/api.js GET /api/pricing`
 - Batch generation:
   - `npx -y bun skills/banana-proxy/scripts/main.ts --batch jobs.jsonl --concurrency 4`
 - Validate tracked changes before commit:
@@ -135,10 +158,11 @@ There is no formal test suite yet. Validate behavior with smoke tests:
 4. Verify required env var behavior (`LNAPI_KEY` and `GEEKAI_API_KEY` missing should fail clearly).
 5. Run one Douyin share-url command and confirm normalized JSON fields are present.
 6. Verify required env var behavior (`TIKHUB_API_KEY` missing should fail clearly).
-7. Run one Douyin video-fetch command against a real video URL and confirm `aweme_id`, `play_url`, and optional `downloaded_path` are present.
+7. Run one Douyin video-fetch command against a real video URL and confirm `aweme_id`, `play_url`, `statistics.view_count`, and optional `downloaded_paths` are present.
 8. Run one video-analysis command against a public video URL and confirm `content` plus `usage` are returned.
-9. Run one Xiaohongshu `create` command against a logged-in browser session and confirm `download_path` is returned.
-10. Run one Xiaohongshu `catalog` command and confirm `theme_catalog/overview.jpg` plus per-theme images are created.
+9. Run one video-viral-analysis pass with data and one without data; confirm the output switches between data attribution and content-only prediction.
+10. Run one Xiaohongshu `create` command against a logged-in browser session and confirm `download_path` is returned.
+11. Run one Xiaohongshu `catalog` command and confirm `theme_catalog/overview.jpg` plus per-theme images are created.
 
 When adding tests later, place them under each skill path (for example `skills/banana-proxy/tests/` or `skills/douyin-share-info/tests/`) and name files `*.test.ts`.
 
