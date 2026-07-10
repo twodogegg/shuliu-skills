@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.25"
+    "version": "0.2.26"
   },
   "plugins": [
     {
@@ -87,6 +87,15 @@
       "skills": [
         "./skills/newapi",
         "./skills/newapi-admin"
+      ]
+    },
+    {
+      "name": "short-drama-tools",
+      "description": "微短剧选题、策划、角色、分集剧本、审查与导出工作流",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/short-drama"
       ]
     }
   ]

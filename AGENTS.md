@@ -20,6 +20,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills-manager`: Skills CLI management helper for listing, finding, installing, removing, updating, restoring, and syncing skills, including local-path installs.
 - `newapi`: User-side NewAPI skill for models, groups, balance, tokens, and secure token application flows.
 - `newapi-admin`: Admin-side NewAPI backend management skill for channels, users, groups, quotas, logs, auth, and system options.
+- `short-drama`: End-to-end vertical short-drama workflow for planning, characters, episode writing, review, compliance, localization, and export.
 
 - `.claude-plugin/marketplace.json`: marketplace metadata, plugin groups, and skill registration.
 - `skills/banana-proxy/SKILL.md`: user-facing skill contract and usage docs.
@@ -67,6 +68,9 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/newapi-admin/SKILL.md`: user-facing skill contract for NewAPI backend administration.
 - `skills/newapi-admin/references/*.md|json`: backend endpoint coverage and auth summary references for `newapi-admin`.
 - `skills/newapi-admin/scripts/api.js`: CLI wrapper for authenticated NewAPI admin API access.
+- `skills/short-drama/SKILL.md`: compact workflow entry and stage routing for short-drama creation.
+- `skills/short-drama/agents/openai.yaml`: Codex-facing display metadata and default prompt.
+- `skills/short-drama/references/*.md`: project workflow, screenplay formats, genre, opening, rhythm, hook, paywall, satisfaction, villain, and compliance guidance.
 - `README.md` / `README.zh.md`: install and update instructions.
 - `CHANGELOG.md` / `CHANGELOG.zh.md`: release notes.
 
@@ -92,6 +96,7 @@ No build step is required; scripts run directly with Bun.
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill skills-manager`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama`
 - Run local generation:
   - `npx -y bun skills/banana-proxy/scripts/main.ts --prompt "A cat" --image out.jpg`
   - `npx -y bun skills/geek-image/scripts/main.ts --prompt "A cat" --image out.png`
@@ -163,6 +168,7 @@ There is no formal test suite yet. Validate behavior with smoke tests:
 9. Run one video-viral-analysis pass with data and one without data; confirm the output switches between data attribution and content-only prediction.
 10. Run one Xiaohongshu `create` command against a logged-in browser session and confirm `download_path` is returned.
 11. Run one Xiaohongshu `catalog` command and confirm `theme_catalog/overview.jpg` plus per-theme images are created.
+12. Validate `skills/short-drama` with the Codex `skill-creator` `quick_validate.py` script and confirm every referenced Markdown file exists.
 
 When adding tests later, place them under each skill path (for example `skills/banana-proxy/tests/` or `skills/douyin-share-info/tests/`) and name files `*.test.ts`.
 

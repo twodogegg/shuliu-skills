@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### 变更
+- 新增 `short-drama` skill：覆盖微短剧选题立项、故事策划、角色设计、分集大纲、单集剧本、质量审查、合规审核、海外本地化与整剧导出。
+- 新增 `short-drama-tools` 插件分组并注册 `./skills/short-drama`，同时将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.26`。
 - 新增 `newapi` skill：用于 NewAPI 用户侧模型、分组、余额、令牌与安全用 token 工作流。
 - 新增 `newapi-admin` skill：用于 NewAPI 后台的渠道、用户、分组、倍率、日志、认证与系统配置管理。
 - 新增 `newapi-tools` 插件分组并注册 `./skills/newapi` 与 `./skills/newapi-admin`，同时将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.25`。
@@ -31,6 +33,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `short-drama` 的安装、使用、校验与仓库维护说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `newapi` 和 `newapi-admin` 的安装与使用说明。
 - 在 `.gitignore` 中忽略 skill 目录下的 `.env` 与 `.session.json`，避免提交本地凭据和会话文件。
 - 更新 `skills/douyin-video-fetch/SKILL.md` 和 `AGENTS.md`，补充统计数据输出与 `video-viral-analysis` 使用说明。

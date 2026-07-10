@@ -23,6 +23,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
+npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 ```
 
 ## Update Skill
@@ -46,6 +47,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
+npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 ```
 
 ## Available Plugins
@@ -60,6 +62,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 | **feishu-tools** | Feishu auth, interactive cards, native approval, token reuse, and Bitable operations | [feishu-user-auth](#feishu-user-auth), [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval), [feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | Xiaohongshu creator workflows | [xhs-text2image](#xhs-text2image) |
 | **newapi-tools** | NewAPI end-user queries and admin management | [newapi](#newapi), [newapi-admin](#newapi-admin) |
+| **short-drama-tools** | End-to-end vertical short-drama screenwriting workflow | [short-drama](#short-drama) |
 
 ## Available Skills
 
@@ -379,3 +382,17 @@ Notes:
 - Configure `NEWAPI_ADMIN_BASE_URL`, `NEWAPI_ADMIN_USERNAME`, `NEWAPI_ADMIN_PASSWORD`, `NEWAPI_ADMIN_USER_ID`, and optional `NEWAPI_ADMIN_ACCESS_TOKEN` in the skill-local `.env`
 - Do not expose passwords, sessions, access tokens, or channel keys
 - When editing channels, fetch the full object first and change only the minimum required fields
+
+### short-drama
+
+End-to-end vertical short-drama screenwriting workflow.
+
+- Covers topic selection, story planning, character design, episode outlines, screenplay writing, quality review, compliance review, overseas localization, and full-script export
+- Restores progress from project files and loads only the references required for the current stage
+- Supports natural-language requests, `$short-drama`, and legacy aliases such as `/start`, `/plan`, and `/episode 1`
+
+Example:
+
+```text
+Use $short-drama to create a 60-episode urban revenge drama for a female audience.
+```

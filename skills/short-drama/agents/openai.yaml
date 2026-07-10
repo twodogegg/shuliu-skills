@@ -1,0 +1,4 @@
+interface:
+  display_name: "微短剧创作"
+  short_description: "从选题立项、人物设计到分集剧本创作、合规审查与完整导出"
+  default_prompt: "使用 $short-drama 创建一部节奏紧凑、人物鲜明的微短剧。"

@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Changes
+- Add the `short-drama` skill for end-to-end vertical drama development across topic selection, planning, characters, episode outlines, screenplay writing, review, compliance, overseas localization, and export.
+- Add the `short-drama-tools` plugin group, register `./skills/short-drama`, and bump `.claude-plugin/marketplace.json` metadata version to `0.2.26`.
 - Add new skill `newapi` for user-side NewAPI model, group, balance, token, and secure token-application workflows.
 - Add new skill `newapi-admin` for NewAPI backend administration across channels, users, groups, pricing, logs, auth, and system options.
 - Register `./skills/newapi` and `./skills/newapi-admin` in a new `newapi-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.25`.
@@ -31,6 +33,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, validation, and repository guidance for `short-drama`.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `newapi` and `newapi-admin`.
 - Ignore skill-local `.env` and `.session.json` files in `.gitignore` to avoid committing local credentials and sessions.
 - Update `skills/douyin-video-fetch/SKILL.md` and `AGENTS.md` with statistics output and `video-viral-analysis` guidance.

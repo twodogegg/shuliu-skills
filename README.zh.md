@@ -23,6 +23,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
+npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 ```
 
 ## 更新技能
@@ -46,6 +47,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
 npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
+npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 ```
 
 ## 可用插件
@@ -60,6 +62,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 | **feishu-tools** | 飞书授权、交互卡片、原生审批、token 复用与多维表格工具 | [feishu-user-auth](#feishu-user-auth)、[feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval)、[feishu-card](#feishu-card) |
 | **xiaohongshu-tools** | 小红书创作工作流 | [xhs-text2image](#xhs-text2image) |
 | **newapi-tools** | NewAPI 用户侧查询与后台管理工具 | [newapi](#newapi)、[newapi-admin](#newapi-admin) |
+| **short-drama-tools** | 微短剧全流程创作工作流 | [short-drama](#short-drama) |
 
 ## 可用技能
 
@@ -379,3 +382,17 @@ node skills/newapi-admin/scripts/api.js POST /api/channel/test '{"id":3,"model":
 - 在 skill 目录下 `.env` 配置 `NEWAPI_ADMIN_BASE_URL`、`NEWAPI_ADMIN_USERNAME`、`NEWAPI_ADMIN_PASSWORD`、`NEWAPI_ADMIN_USER_ID`，以及可选的 `NEWAPI_ADMIN_ACCESS_TOKEN`
 - 不要暴露密码、session、access token 或渠道 key
 - 更新渠道前先取完整对象，再只改必要字段，避免覆盖其它配置
+
+### short-drama
+
+覆盖微短剧全流程的编剧工作流。
+
+- 支持选题立项、故事策划、角色设计、分集大纲、单集剧本、质量审查、合规审核、海外本地化和整剧导出
+- 可从项目文件恢复创作进度，并只加载当前阶段需要的参考资料
+- 支持自然语言、`$short-drama`，也兼容 `/start`、`/plan`、`/episode 1` 等旧命令
+
+示例：
+
+```text
+使用 $short-drama 创作一部面向女频观众的 60 集都市复仇短剧。
+```
