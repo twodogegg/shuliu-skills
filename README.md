@@ -7,20 +7,14 @@ Local skills marketplace following the `jimliu/baoyu-skills` structure.
 ## Installation
 
 ```bash
-npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
-npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
-npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
-npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
@@ -31,20 +25,14 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 When the skill is updated in this repository, reinstall the latest version:
 
 ```bash
-npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
-npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
-npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
-npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
@@ -54,54 +42,15 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 
 | Plugin | Description | Skills |
 |--------|-------------|--------|
-| **image-generation-skills** | Image generation backends and workflows | [banana-proxy](#banana-proxy), [geek-image](#geek-image), [ecommerce-images](#ecommerce-images), [multi-image-consistency](#multi-image-consistency) |
-| **video-generation-skills** | Video generation backends | [sora-video](#sora-video) |
+| **image-generation-skills** | Image generation workflows | [ecommerce-images](#ecommerce-images), [multi-image-consistency](#multi-image-consistency) |
 | **douyin-tools** | Douyin video parsing and download | [douyin-share-info](#douyin-share-info), [douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | Video analysis and transcript workflows | [video-analysis](#video-analysis) |
 | **wechat-tools** | WeChat public account article scraping | [wechat-mp-scraper](#wechat-mp-scraper) |
-| **feishu-tools** | Feishu auth, interactive cards, native approval, token reuse, and Bitable operations | [feishu-user-auth](#feishu-user-auth), [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval), [feishu-card](#feishu-card) |
-| **xiaohongshu-tools** | Xiaohongshu creator workflows | [xhs-text2image](#xhs-text2image) |
+| **feishu-tools** | Feishu native approval and Bitable operations | [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval) |
 | **newapi-tools** | NewAPI end-user queries and admin management | [newapi](#newapi), [newapi-admin](#newapi-admin) |
 | **short-drama-tools** | End-to-end vertical short-drama screenwriting workflow | [short-drama](#short-drama) |
 
 ## Available Skills
-
-### banana-proxy
-
-Gemini image generation via Banana proxy endpoint.
-
-```bash
-npx -y bun skills/banana-proxy/scripts/main.ts --prompt "A cat" --image out.jpg
-```
-
-Environment variable:
-
-- `LNAPI_KEY` (required)
-
-### geek-image
-
-GeekAI image generation via geekai.co.
-
-```bash
-npx -y bun skills/geek-image/scripts/main.ts --prompt "A cat" --image out.png
-```
-
-Environment variables:
-
-- `GEEKAI_API_KEY` (required)
-- `GEEK_IMAGE_MODEL` (optional, default `nano-banana-2`)
-
-### sora-video
-
-Sora video generation via lnapi.com.
-
-```bash
-npx -y bun skills/sora-video/scripts/main.ts --prompt "A video prompt" --output video.mp4
-```
-
-Environment variable:
-
-- `LNAPI_KEY` (required)
 
 ### douyin-share-info
 
@@ -216,7 +165,7 @@ Workflow skill for generating ecommerce product main images and detail images fr
 - Supports: `main` / `detail` / `both`
 - Detail images are generated as a set, and the skill asks the user how many detail images are needed before execution
 - Default aspect ratio: main image `1:1`, detail images `3:4`
-- Defaults to `banana-proxy`; falls back to `baoyu-image-gen` on failure
+- Uses `baoyu-image-gen`
 - Supports human-friendly style names
 
 Use this skill by asking in natural language, for example:
@@ -234,39 +183,6 @@ Prompt workflow skill for multi-image projects that need visual continuity acros
 Use this skill by providing a PRD, storyboard, script, campaign brief, or image list, for example:
 - "Turn this storyboard into consistent image-generation prompts"
 - "Build prompts for 8 matching product UI screenshots from this PRD"
-
-### feishu-user-auth
-
-Feishu user OAuth/device-flow authorization with local token reuse and scope top-up.
-
-After a project-local install:
-
-```bash
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js auth
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js show-token
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js refresh-token
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-```
-
-After a global install (`npx skills add ... -g`):
-
-```bash
-~/.agents/skills/feishu-user-auth/bin/feishu-auth.js auth
-```
-
-Config options:
-
-- Edit the installed skill's `config.json` (`appId` / `appSecret` required)
-  - Project-local install: `./.agents/skills/feishu-user-auth/config.json`
-  - Global install: `~/.agents/skills/feishu-user-auth/config.json`
-- Or run `~/.agents/skills/feishu-user-auth/bin/feishu-auth.js --config /path/to/config.json auth`
-
-If you want the short `feishu-auth` command, add your own PATH symlink:
-
-```bash
-mkdir -p ~/.local/bin
-ln -sf ~/.agents/skills/feishu-user-auth/bin/feishu-auth.js ~/.local/bin/feishu-auth
-```
 
 ### feishu-bitable
 
@@ -288,51 +204,6 @@ Documentation-first skill for Feishu native approvals, covering approval definit
   - "How do I pass dateInterval when creating an approval instance?"
 - "What does approval code not found mean?"
 - This skill intentionally ships without scripts and focuses on turning official approval docs into precise field explanations and ready-to-use JSON fragments.
-
-### feishu-card
-
-Documentation-first skill for Feishu interactive cards, covering card JSON structure, `interactive` message sending, callback payloads, and message updates.
-
-- Trigger it with natural language, for example:
-  - "Send an interactive card to this open_id"
-  - "Write a Feishu card with two buttons and a note section"
-  - "How do I update an existing card by message_id?"
-  - "Why does `feishu-auth system-token` fail when I paste it directly into Authorization?"
-- This skill reuses `feishu-user-auth` for token retrieval. Prefer:
-
-```bash
-feishu-auth system-token
-```
-
-If `feishu-auth` is not in PATH, run the installed bin directly:
-
-```bash
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-~/.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-```
-
-- `system-token` returns JSON. Use only the `accessToken` field in `Authorization: Bearer <token>`.
-
-### xhs-text2image
-
-Xiaohongshu creator-platform text-to-image automation for logged-in browser sessions.
-
-- Supports text prompt creation, preview-page theme switching, recolor, redownload, and theme listing
-- Bundles a ready-to-send preview catalog under `skills/xhs-text2image/theme_catalog/`
-- Includes a `catalog` command to refresh every theme sample and regenerate the overview image
-
-Run examples:
-
-```bash
-python3 skills/xhs-text2image/scripts/xhs_text2image.py create --port 9444 --text "小红书主题测试" --theme 科技
-python3 skills/xhs-text2image/scripts/xhs_text2image.py catalog --port 9444 --text "小红书主题测试"
-```
-
-Requirements:
-
-- Python 3
-- `playwright` and `Pillow`
-- A Chrome / Chromium session already logged in to Xiaohongshu Creator and exposed through a CDP port such as `9444`
 
 ### newapi
 

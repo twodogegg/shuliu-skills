@@ -3,6 +3,9 @@
 ## Unreleased
 
 ### Changes
+- Remove the `sora-video`, `banana-proxy`, `geek-image`, `feishu-card`, `xhs-text2image`, and `feishu-user-auth` skills.
+- Remove the empty `video-generation-skills` and `xiaohongshu-tools` plugin groups, prune the remaining marketplace registrations, and bump the marketplace version to `0.2.27`.
+- Update `ecommerce-images` to use `baoyu-image-gen` directly after removing `banana-proxy`.
 - Add the `short-drama` skill for end-to-end vertical drama development across topic selection, planning, characters, episode outlines, screenplay writing, review, compliance, overseas localization, and export.
 - Add the `short-drama-tools` plugin group, register `./skills/short-drama`, and bump `.claude-plugin/marketplace.json` metadata version to `0.2.26`.
 - Add new skill `newapi` for user-side NewAPI model, group, balance, token, and secure token-application workflows.
@@ -33,6 +36,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Remove the deleted skills from `README.md`, `README.zh.md`, and `AGENTS.md`, and refresh the remaining plugin descriptions and validation guidance.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, validation, and repository guidance for `short-drama`.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `newapi` and `newapi-admin`.
 - Ignore skill-local `.env` and `.session.json` files in `.gitignore` to avoid committing local credentials and sessions.

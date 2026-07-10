@@ -3,6 +3,9 @@
 ## Unreleased
 
 ### 变更
+- 删除 `sora-video`、`banana-proxy`、`geek-image`、`feishu-card`、`xhs-text2image` 和 `feishu-user-auth` 六个 skill。
+- 删除已经为空的 `video-generation-skills` 与 `xiaohongshu-tools` 插件分组，清理其余 marketplace 注册，并将版本升级到 `0.2.27`。
+- 删除 `banana-proxy` 后，将 `ecommerce-images` 调整为直接使用 `baoyu-image-gen`。
 - 新增 `short-drama` skill：覆盖微短剧选题立项、故事策划、角色设计、分集大纲、单集剧本、质量审查、合规审核、海外本地化与整剧导出。
 - 新增 `short-drama-tools` 插件分组并注册 `./skills/short-drama`，同时将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.26`。
 - 新增 `newapi` skill：用于 NewAPI 用户侧模型、分组、余额、令牌与安全用 token 工作流。
@@ -33,6 +36,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 从 `README.md`、`README.zh.md` 与 `AGENTS.md` 中移除已删除 skill，并同步刷新剩余插件说明与校验指南。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `short-drama` 的安装、使用、校验与仓库维护说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `newapi` 和 `newapi-admin` 的安装与使用说明。
 - 在 `.gitignore` 中忽略 skill 目录下的 `.env` 与 `.session.json`，避免提交本地凭据和会话文件。

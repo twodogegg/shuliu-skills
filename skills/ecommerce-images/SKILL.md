@@ -1,6 +1,6 @@
 ---
 name: ecommerce-images
-description: 电商商品图生成工作流技能。接收用户提供的商品原图，按模式生成主图、详情图或两者；详情图按套生成并在执行前询问用户需要几张；默认调用 banana-proxy，失败时回退到 baoyu-image-gen；仅支持用中文风格名选择主图/详情图风格。
+description: 电商商品图生成工作流技能。接收用户提供的商品原图，按模式生成主图、详情图或两者；详情图按套生成并在执行前询问用户需要几张；使用 baoyu-image-gen 生成图片；仅支持用中文风格名选择主图/详情图风格。
 ---
 
 # 电商主图/详情图工作流（无脚本版）
@@ -28,7 +28,7 @@ description: 电商商品图生成工作流技能。接收用户提供的商品�
    - `both`：先主图后详情图套图
 3. 当 `mode=detail|both` 时，先询问用户“详情图需要几张？”，得到 `detailCount` 后再执行。
 4. 为每张目标图按风格名组装中文提示词。
-5. 先调用 `banana-proxy` 生成：
+5. 调用 `baoyu-image-gen` 生成：
    - 使用参考图（`--ref`）
    - 默认比例：
      - 主图：`1:1`
@@ -36,15 +36,11 @@ description: 电商商品图生成工作流技能。接收用户提供的商品�
    - 输出路径建议：
      - 主图：`out/ecommerce-images/<原图名>_main_<风格key>.png`
      - 详情图第 i 张：`out/ecommerce-images/<原图名>_detail_<风格key>_n<i>.png`
-6. 如果 `banana-proxy` 失败，立即回退到 `baoyu-image-gen`：
-   - 保持同一提示词、参考图与输出路径约定
-7. 返回结构化结果，至少包含：模式、风格名、详情图数量、每张图的最终输出路径、实际使用的 provider。
+6. 返回结构化结果，至少包含：模式、风格名、详情图数量、每张图的最终输出路径、实际使用的 provider。
 
 ## Provider 策略
 
-- 默认：`banana-proxy`
-- 回退：`baoyu-image-gen`
-- 禁止反向顺序（除非用户明确要求）
+- 使用：`baoyu-image-gen`
 
 ## 风格选择（可扩展）
 
@@ -97,10 +93,7 @@ description: 电商商品图生成工作流技能。接收用户提供的商品�
 
 ## 环境变量
 
-- 走 `banana-proxy` 时：
-  - `LNAPI_KEY`（必填）
-- 走 `baoyu-image-gen` 回退时：
-  - 建议优先 `GOOGLE_API_KEY`，或 `OPENAI_API_KEY`
+- 建议优先配置 `GOOGLE_API_KEY`，或使用 `OPENAI_API_KEY`
 
 ## 输出约定
 
@@ -108,7 +101,7 @@ description: 电商商品图生成工作流技能。接收用户提供的商品�
 - `mode=detail`：返回详情图路径
 - `mode=both`：返回主图与详情图路径
 - 详情图返回数组：`savedDetailImages[]`
-- 附带每张图的 `provider`（`banana-proxy` 或 `baoyu-image-gen`）与 `styleKey`
+- 附带每张图的 `provider`（`baoyu-image-gen`）与 `styleKey`
 
 ## 面向用户的话术
 

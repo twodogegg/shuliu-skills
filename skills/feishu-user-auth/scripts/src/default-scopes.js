@@ -1,1 +1,0 @@
-export const DEFAULT_SCOPE_BATCH_SIZE = 60;

@@ -7,20 +7,14 @@
 ## 安装
 
 ```bash
-npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
-npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
-npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
-npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
@@ -31,20 +25,14 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 当仓库中的技能更新后，重新执行安装命令即可拉取最新版本：
 
 ```bash
-npx skills add https://github.com/twodogegg/shuliu-skills --skill banana-proxy
-npx skills add https://github.com/twodogegg/shuliu-skills --skill geek-image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
-npx skills add https://github.com/twodogegg/shuliu-skills --skill sora-video
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
 npx skills add https://github.com/twodogegg/shuliu-skills --skill wechat-mp-scraper
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-user-auth
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-bitable
 npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approval
-npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-card
-npx skills add https://github.com/twodogegg/shuliu-skills --skill xhs-text2image
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
@@ -54,54 +42,15 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 
 | 插件 | 说明 | 包含技能 |
 |------|------|----------|
-| **image-generation-skills** | 图片生成后端与工作流 | [banana-proxy](#banana-proxy)、[geek-image](#geek-image)、[ecommerce-images](#ecommerce-images)、[multi-image-consistency](#multi-image-consistency) |
-| **video-generation-skills** | 视频生成后端 | [sora-video](#sora-video) |
+| **image-generation-skills** | 图片生成工作流 | [ecommerce-images](#ecommerce-images)、[multi-image-consistency](#multi-image-consistency) |
 | **douyin-tools** | 抖音视频解析与下载工具 | [douyin-share-info](#douyin-share-info)、[douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | 视频分析与转录工具 | [video-analysis](#video-analysis) |
 | **wechat-tools** | 微信公众号文章抓取工具 | [wechat-mp-scraper](#wechat-mp-scraper) |
-| **feishu-tools** | 飞书授权、交互卡片、原生审批、token 复用与多维表格工具 | [feishu-user-auth](#feishu-user-auth)、[feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval)、[feishu-card](#feishu-card) |
-| **xiaohongshu-tools** | 小红书创作工作流 | [xhs-text2image](#xhs-text2image) |
+| **feishu-tools** | 飞书原生审批与多维表格工具 | [feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval) |
 | **newapi-tools** | NewAPI 用户侧查询与后台管理工具 | [newapi](#newapi)、[newapi-admin](#newapi-admin) |
 | **short-drama-tools** | 微短剧全流程创作工作流 | [short-drama](#short-drama) |
 
 ## 可用技能
-
-### banana-proxy
-
-通过 Banana 代理端点调用 Gemini 生图。
-
-```bash
-npx -y bun skills/banana-proxy/scripts/main.ts --prompt "一只猫" --image out.jpg
-```
-
-环境变量：
-
-- `LNAPI_KEY`（必填）
-
-### geek-image
-
-通过 geekai.co 调用 GeekAI 图像接口生图。
-
-```bash
-npx -y bun skills/geek-image/scripts/main.ts --prompt "一只猫" --image out.png
-```
-
-环境变量：
-
-- `GEEKAI_API_KEY`（必填）
-- `GEEK_IMAGE_MODEL`（可选，默认 `nano-banana-2`）
-
-### sora-video
-
-通过 lnapi.com 调用 Sora 生成视频。
-
-```bash
-npx -y bun skills/sora-video/scripts/main.ts --prompt "一只奔跑的狗" --output video.mp4
-```
-
-环境变量：
-
-- `LNAPI_KEY`（必填）
 
 ### douyin-share-info
 
@@ -216,7 +165,7 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
 - 支持模式：`main` / `detail` / `both`
 - 详情图为整套图，执行前会先询问用户需要几张
 - 默认比例：主图 `1:1`，详情图 `3:4`
-- 默认调用 `banana-proxy`，失败自动回退 `baoyu-image-gen`
+- 使用 `baoyu-image-gen`
 - 支持中文风格名（如“白底极简主图”“参数规格详情图”）
 
 以自然语言触发即可，例如：
@@ -234,39 +183,6 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
 以 PRD、分镜、脚本、campaign brief 或图片清单触发即可，例如：
 - “把这个分镜脚本转成一组风格一致的生图提示词”
 - “根据这个 PRD 生成 8 张一致的产品 UI 截图提示词”
-
-### feishu-user-auth
-
-用于飞书用户 OAuth/device-flow 授权、scope 补授权和本地 token 复用。
-
-项目内安装后：
-
-```bash
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js auth
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js show-token
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js refresh-token
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-```
-
-全局安装（`npx skills add ... -g`）后：
-
-```bash
-~/.agents/skills/feishu-user-auth/bin/feishu-auth.js auth
-```
-
-配置方式：
-
-- 修改安装后 skill 目录里的 `config.json`，其中 `appId` / `appSecret` 必填
-  - 项目内安装：`./.agents/skills/feishu-user-auth/config.json`
-  - 全局安装：`~/.agents/skills/feishu-user-auth/config.json`
-- 或直接使用 `~/.agents/skills/feishu-user-auth/bin/feishu-auth.js --config /path/to/config.json auth`
-
-如果你想直接敲 `feishu-auth`，可以手动链接到 PATH：
-
-```bash
-mkdir -p ~/.local/bin
-ln -sf ~/.agents/skills/feishu-user-auth/bin/feishu-auth.js ~/.local/bin/feishu-auth
-```
 
 ### feishu-bitable
 
@@ -288,51 +204,6 @@ ln -sf ~/.agents/skills/feishu-user-auth/bin/feishu-auth.js ~/.local/bin/feishu-
   - “创建审批实例时 dateInterval 要怎么传”
   - “approval code not found 是什么问题”
 - 这个 skill 不自带脚本，重点是把官方审批文档按定义、控件、实例、排障分层整理，方便直接回答和拼接 JSON。
-
-### feishu-card
-
-用于飞书交互卡片的文档型 skill，覆盖卡片 JSON 结构、`interactive` 消息发送、按钮回调，以及按 `message_id` 更新卡片。
-
-- 以自然语言触发即可，例如：
-  - “给这个 open_id 发一张飞书交互卡片”
-  - “写一个带两个按钮和 note 区的飞书卡片”
-  - “怎么根据 message_id 更新飞书卡片”
-  - “为什么 `feishu-auth system-token` 不能整段直接塞到 Authorization”
-- 这个 skill 复用 `feishu-user-auth` 提供的系统 token 能力。优先执行：
-
-```bash
-feishu-auth system-token
-```
-
-如果 `feishu-auth` 不在 PATH 里，就直接执行安装后的 bin：
-
-```bash
-./.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-~/.agents/skills/feishu-user-auth/bin/feishu-auth.js system-token
-```
-
-- `system-token` 返回的是 JSON，请只取其中的 `accessToken` 放进 `Authorization: Bearer <token>`。
-
-### xhs-text2image
-
-用于小红书创作平台“文字配图”的自动化 skill，适合接管已登录浏览器会话后直接生成配图。
-
-- 支持输入文案生成图片、在预览页切主题、换配色、重新下载、查看主题列表
-- 自带现成主题预览资产，位于 `skills/xhs-text2image/theme_catalog/`
-- 提供 `catalog` 命令，可一次性刷新全部主题样例并重建总览图
-
-示例命令：
-
-```bash
-python3 skills/xhs-text2image/scripts/xhs_text2image.py create --port 9444 --text "小红书主题测试" --theme 科技
-python3 skills/xhs-text2image/scripts/xhs_text2image.py catalog --port 9444 --text "小红书主题测试"
-```
-
-依赖要求：
-
-- Python 3
-- `playwright` 与 `Pillow`
-- 已登录小红书创作平台的 Chrome / Chromium，并通过 `9444` 之类的 CDP 端口开放调试
 
 ### newapi
 

@@ -5,28 +5,17 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.26"
+    "version": "0.2.27"
   },
   "plugins": [
     {
       "name": "image-generation-skills",
-      "description": "Image generation backends and workflows",
+      "description": "Image generation workflows",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/banana-proxy",
-        "./skills/geek-image",
         "./skills/ecommerce-images",
         "./skills/multi-image-consistency"
-      ]
-    },
-    {
-      "name": "video-generation-skills",
-      "description": "Video generation backends",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/sora-video"
       ]
     },
     {
@@ -60,23 +49,12 @@
     },
     {
       "name": "feishu-tools",
-      "description": "飞书授权、交互卡片、原生审批、多维表格与 token 复用工具",
+      "description": "飞书原生审批与多维表格工具",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/feishu-user-auth",
         "./skills/feishu-bitable",
-        "./skills/feishu-approval",
-        "./skills/feishu-card"
-      ]
-    },
-    {
-      "name": "xiaohongshu-tools",
-      "description": "小红书文字配图生成、主题切换与主题预览工具",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/xhs-text2image"
+        "./skills/feishu-approval"
       ]
     },
     {
