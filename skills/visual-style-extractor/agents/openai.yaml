@@ -1,0 +1,6 @@
+interface:
+  display_name: "视觉风格提取器"
+  short_description: "从参考图片提取可复用视觉风格，并生成可直接复制的中文提示词"
+  default_prompt: "使用 $visual-style-extractor 从参考图片提取可复用风格，并生成可直接使用的中文提示词。"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"

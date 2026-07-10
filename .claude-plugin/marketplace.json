@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.27"
+    "version": "0.2.28"
   },
   "plugins": [
     {
@@ -15,7 +15,8 @@
       "strict": false,
       "skills": [
         "./skills/ecommerce-images",
-        "./skills/multi-image-consistency"
+        "./skills/multi-image-consistency",
+        "./skills/visual-style-extractor"
       ]
     },
     {

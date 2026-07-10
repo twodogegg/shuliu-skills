@@ -9,6 +9,7 @@
 ```bash
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
+npx skills add https://github.com/twodogegg/shuliu-skills --skill visual-style-extractor
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
@@ -27,6 +28,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 ```bash
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
+npx skills add https://github.com/twodogegg/shuliu-skills --skill visual-style-extractor
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
@@ -42,7 +44,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 
 | 插件 | 说明 | 包含技能 |
 |------|------|----------|
-| **image-generation-skills** | 图片生成工作流 | [ecommerce-images](#ecommerce-images)、[multi-image-consistency](#multi-image-consistency) |
+| **image-generation-skills** | 图片生成工作流 | [ecommerce-images](#ecommerce-images)、[multi-image-consistency](#multi-image-consistency)、[visual-style-extractor](#visual-style-extractor) |
 | **douyin-tools** | 抖音视频解析与下载工具 | [douyin-share-info](#douyin-share-info)、[douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | 视频分析与转录工具 | [video-analysis](#video-analysis) |
 | **wechat-tools** | 微信公众号文章抓取工具 | [wechat-mp-scraper](#wechat-mp-scraper) |
@@ -183,6 +185,20 @@ python3 skills/wechat-mp-scraper/scripts/scrape_wechat_mp.py \
 以 PRD、分镜、脚本、campaign brief 或图片清单触发即可，例如：
 - “把这个分镜脚本转成一组风格一致的生图提示词”
 - “根据这个 PRD 生成 8 张一致的产品 UI 截图提示词”
+
+### visual-style-extractor
+
+从单张或多张参考图片中提取可复用的视觉规则，并生成可直接复制的中文提示词。
+
+- 区分可替换主体与可复用的构图、配色、光线、材质、字体和氛围
+- 支持通用风格提取、新图提示词、多参考图组合和“其他保持不变”的精确改图
+- 自带静态 SVG 图标和简洁输出示例
+
+可以直接用自然语言触发，例如：
+
+- “提取这张海报的可复用风格，让主体可以替换”
+- “沿用图 1 的构图和图 2 的金属质感，写一段提示词”
+- “只把草地改成专业足球场，其他全部保持不变”
 
 ### feishu-bitable
 

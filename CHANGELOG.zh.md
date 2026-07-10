@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### 变更
+- 新增 `visual-style-extractor` skill：从参考图片提取可复用视觉规则，并生成可直接复制的生图或精确改图提示词。
+- 在 `image-generation-skills` 中注册 `./skills/visual-style-extractor`，并将 marketplace 版本升级到 `0.2.28`。
 - 删除 `sora-video`、`banana-proxy`、`geek-image`、`feishu-card`、`xhs-text2image` 和 `feishu-user-auth` 六个 skill。
 - 删除已经为空的 `video-generation-skills` 与 `xiaohongshu-tools` 插件分组，清理其余 marketplace 注册，并将版本升级到 `0.2.27`。
 - 删除 `banana-proxy` 后，将 `ecommerce-images` 调整为直接使用 `baoyu-image-gen`。
@@ -36,6 +38,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `visual-style-extractor` 的安装、使用、目录结构和校验说明。
 - 从 `README.md`、`README.zh.md` 与 `AGENTS.md` 中移除已删除 skill，并同步刷新剩余插件说明与校验指南。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `short-drama` 的安装、使用、校验与仓库维护说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `newapi` 和 `newapi-admin` 的安装与使用说明。

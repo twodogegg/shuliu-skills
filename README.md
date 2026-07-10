@@ -9,6 +9,7 @@ Local skills marketplace following the `jimliu/baoyu-skills` structure.
 ```bash
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
+npx skills add https://github.com/twodogegg/shuliu-skills --skill visual-style-extractor
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
@@ -27,6 +28,7 @@ When the skill is updated in this repository, reinstall the latest version:
 ```bash
 npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images
 npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency
+npx skills add https://github.com/twodogegg/shuliu-skills --skill visual-style-extractor
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info
 npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch
 npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis
@@ -42,7 +44,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 
 | Plugin | Description | Skills |
 |--------|-------------|--------|
-| **image-generation-skills** | Image generation workflows | [ecommerce-images](#ecommerce-images), [multi-image-consistency](#multi-image-consistency) |
+| **image-generation-skills** | Image generation workflows | [ecommerce-images](#ecommerce-images), [multi-image-consistency](#multi-image-consistency), [visual-style-extractor](#visual-style-extractor) |
 | **douyin-tools** | Douyin video parsing and download | [douyin-share-info](#douyin-share-info), [douyin-video-fetch](#douyin-video-fetch) |
 | **video-analysis-tools** | Video analysis and transcript workflows | [video-analysis](#video-analysis) |
 | **wechat-tools** | WeChat public account article scraping | [wechat-mp-scraper](#wechat-mp-scraper) |
@@ -183,6 +185,20 @@ Prompt workflow skill for multi-image projects that need visual continuity acros
 Use this skill by providing a PRD, storyboard, script, campaign brief, or image list, for example:
 - "Turn this storyboard into consistent image-generation prompts"
 - "Build prompts for 8 matching product UI screenshots from this PRD"
+
+### visual-style-extractor
+
+Extract reusable visual rules from one or more reference images and turn them into copy-ready Chinese prompts.
+
+- Separates replaceable subject content from reusable composition, color, lighting, material, typography, and mood
+- Supports general style extraction, new-image prompts, multiple references, and precise edits that lock everything else
+- Includes a static SVG icon and concise output examples
+
+Use it with natural language, for example:
+
+- "Extract the reusable style from this poster and make the subject replaceable"
+- "Use image 1's composition and image 2's metal texture to write a prompt"
+- "Change only the grass into a professional football pitch and keep everything else unchanged"
 
 ### feishu-bitable
 

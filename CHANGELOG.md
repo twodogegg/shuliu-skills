@@ -3,6 +3,8 @@
 ## Unreleased
 
 ### Changes
+- Add the `visual-style-extractor` skill for extracting reusable visual rules from reference images and producing copy-ready generation or precise-edit prompts.
+- Register `./skills/visual-style-extractor` in `image-generation-skills` and bump the marketplace version to `0.2.28`.
 - Remove the `sora-video`, `banana-proxy`, `geek-image`, `feishu-card`, `xhs-text2image`, and `feishu-user-auth` skills.
 - Remove the empty `video-generation-skills` and `xiaohongshu-tools` plugin groups, prune the remaining marketplace registrations, and bump the marketplace version to `0.2.27`.
 - Update `ecommerce-images` to use `baoyu-image-gen` directly after removing `banana-proxy`.
@@ -36,6 +38,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, structure, and validation guidance for `visual-style-extractor`.
 - Remove the deleted skills from `README.md`, `README.zh.md`, and `AGENTS.md`, and refresh the remaining plugin descriptions and validation guidance.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, validation, and repository guidance for `short-drama`.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with install and usage guidance for `newapi` and `newapi-admin`.

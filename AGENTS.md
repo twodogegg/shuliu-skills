@@ -4,6 +4,7 @@
 This repository is a Claude Code skills marketplace currently focused on:
 - `ecommerce-images`: Workflow skill to generate ecommerce product main/detail images by orchestrating existing image generation skills.
 - `multi-image-consistency`: Prompt workflow skill for multi-image generation projects that need strong cross-image consistency.
+- `visual-style-extractor`: Extract reusable visual rules from reference images and produce copy-ready generation or precise-edit prompts.
 - `douyin-share-info`: Fetch Douyin basic info from share URLs via TikHub Web API.
 - `douyin-video-fetch`: Fetch Douyin video detail data from video/share URLs and optionally download the video file.
 - `video-analysis`: Analyze public video URLs through GeekAI's OpenAI-compatible video chat API.
@@ -20,6 +21,10 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/ecommerce-images/SKILL.md`: user-facing skill contract and usage docs for ecommerce images.
 - `skills/multi-image-consistency/SKILL.md`: user-facing skill contract for style-anchor and matched-prompt workflows.
 - `skills/multi-image-consistency/references/*.md`: output template and consistency playbook for multi-image prompt sets.
+- `skills/visual-style-extractor/SKILL.md`: compact workflow for separating subject content from reusable visual style.
+- `skills/visual-style-extractor/agents/openai.yaml`: Codex-facing display metadata and default prompt.
+- `skills/visual-style-extractor/assets/icon.svg`: static skill icon.
+- `skills/visual-style-extractor/references/examples.md`: reusable style-extraction and precise-edit examples.
 - `skills/douyin-share-info/SKILL.md`: user-facing skill contract and extraction rules for Douyin share parsing.
 - `skills/douyin-share-info/scripts/main.ts`: CLI entrypoint for TikHub API calls and normalized output.
 - `skills/douyin-video-fetch/SKILL.md`: user-facing skill contract for fetching Douyin video info and downloading files.
@@ -54,6 +59,7 @@ No build step is required; scripts run directly with Bun, Node.js, or Python as 
 - Install skill from GitHub:
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill ecommerce-images`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill multi-image-consistency`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill visual-style-extractor`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-share-info`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill douyin-video-fetch`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill video-analysis`
@@ -110,6 +116,7 @@ There is no formal test suite yet. Validate behavior with smoke tests:
 4. Run one video-analysis command against a public video URL and confirm `content` plus `usage` are returned.
 5. Run one video-viral-analysis pass with data and one without data; confirm the output switches between data attribution and content-only prediction.
 6. Validate `skills/short-drama` with the Codex `skill-creator` `quick_validate.py` script and confirm every referenced Markdown file exists.
+7. Validate `skills/visual-style-extractor` with `quick_validate.py`, confirm all referenced files exist, and ensure its SVG contains no scripts or external resources.
 
 When adding tests later, place them under each skill path (for example `skills/douyin-share-info/tests/`) and name files `*.test.ts`.
 
