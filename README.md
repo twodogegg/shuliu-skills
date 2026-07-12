@@ -4,6 +4,39 @@ English | [中文](./README.zh.md)
 
 Local skills marketplace following the `jimliu/baoyu-skills` structure.
 
+## Claude Code Plugin Marketplace
+
+Add this repository as a Claude Code plugin marketplace, then install the plugins you need.
+
+### Install from inside Claude Code
+
+```text
+/plugin marketplace add twodogegg/shuliu-skills
+```
+
+Install one or more plugins:
+
+```text
+/plugin install image-generation-skills@shuliu-skills
+/plugin install douyin-tools@shuliu-skills
+/plugin install video-analysis-tools@shuliu-skills
+/plugin install wechat-tools@shuliu-skills
+/plugin install feishu-tools@shuliu-skills
+/plugin install newapi-tools@shuliu-skills
+/plugin install short-drama-tools@shuliu-skills
+```
+
+Run `/reload-plugins` after installation to load the newly installed plugins without restarting Claude Code.
+
+You can also run the same operations directly from your terminal:
+
+```bash
+claude plugin marketplace add twodogegg/shuliu-skills
+claude plugin install image-generation-skills@shuliu-skills
+```
+
+Use `/plugin` inside Claude Code to browse, enable, disable, update, or uninstall plugins from the marketplace.
+
 ## Installation
 
 ```bash
