@@ -140,6 +140,36 @@ def extract_video_urls(video: dict) -> tuple[str | None, str | None]:
     return play_url, download_url
 
 
+def normalize_count(value):
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    return None
+
+
+def extract_statistics(aweme: dict) -> dict:
+    stats = aweme.get("statistics") or {}
+    hot_list = aweme.get("hot_list") or {}
+    stats_play_count = normalize_count(stats.get("play_count"))
+    hot_view_count = normalize_count(hot_list.get("view_count"))
+    view_count = hot_view_count
+
+    return {
+        "view_count": view_count,
+        "view_count_source": "hot_list.view_count",
+        "play_count": stats_play_count,
+        "comment_count": normalize_count(stats.get("comment_count")),
+        "digg_count": normalize_count(stats.get("digg_count")),
+        "collect_count": normalize_count(stats.get("collect_count")),
+        "share_count": normalize_count(stats.get("share_count")),
+        "recommend_count": normalize_count(stats.get("recommend_count")),
+        "admire_count": normalize_count(stats.get("admire_count")),
+    }
+
+
 def normalize_output(input_url: str, normalized_url: str, resolved_url: str, page_url: str, detail: dict) -> dict:
     aweme = detail.get("aweme_detail") or {}
     video = aweme.get("video") or {}
@@ -167,6 +197,7 @@ def normalize_output(input_url: str, normalized_url: str, resolved_url: str, pag
         "duration_ms": video.get("duration"),
         "width": (video.get("play_addr") or {}).get("width") or (video.get("play_addr_h264") or {}).get("width"),
         "height": (video.get("play_addr") or {}).get("height") or (video.get("play_addr_h264") or {}).get("height"),
+        "statistics": extract_statistics(aweme),
         "downloaded_paths": {},
     }
 

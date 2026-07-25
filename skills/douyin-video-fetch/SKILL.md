@@ -46,7 +46,7 @@ description: "下载抖音视频信息以及视频、音频、封面文件。只
 - `cover`: 下载封面文件
 - `all`: 一次性下载视频、音频、封面
 
-所有子命令都会输出结构化 JSON，包含 `aweme_id`、标题、作者、封面、音频、播放地址，以及本次实际下载到本地的 `downloaded_paths`。
+所有子命令都会输出结构化 JSON，包含 `aweme_id`、标题、作者、封面、音频、播放地址、互动统计，以及本次实际下载到本地的 `downloaded_paths`。
 
 ## 执行脚本
 
@@ -130,6 +130,16 @@ python3 ${SKILL_DIR}/scripts/fetch_douyin_video.py \
 - `duration_ms`
 - `width`
 - `height`
+- `statistics`: 互动统计对象
+  - `view_count`: 播放量，来自 `aweme_detail.hot_list.view_count`
+  - `comment_count`: 评论数
+  - `digg_count`: 点赞数
+  - `collect_count`: 收藏数
+  - `share_count`: 分享数
+  - `recommend_count`: 推荐数
+  - `admire_count`: 赞赏数
+  - `play_count`: 原始 `statistics.play_count`，抖音详情接口里可能为 `0`，不要用它替代 `view_count`
+  - `view_count_source`: 固定为 `hot_list.view_count`
 - `downloaded_paths`
 
 ## 依赖
@@ -153,4 +163,4 @@ playwright install chromium
 
 ## 推荐串联
 
-如果用户接下来还要分析这个视频，优先把本 skill 输出的 `play_url` 或 `downloaded_paths.video` 交给 `video-analysis` skill 使用。
+如果用户接下来还要分析这个视频，优先把本 skill 输出的 `play_url`、`downloaded_paths.video` 和 `statistics` 交给视频分析或爆款分析 skill 使用。
