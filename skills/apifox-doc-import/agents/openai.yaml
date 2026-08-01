@@ -1,0 +1,4 @@
+interface:
+  display_name: "文档转 Apifox 接口"
+  short_description: "将文档转换为接口和说明文档并按偏好导入 Apifox"
+  default_prompt: "使用 $apifox-doc-import 按我的项目与目录偏好转换这份文档，将接口和使用说明一起导入 Apifox。"

@@ -3,6 +3,13 @@
 ## Unreleased
 
 ### 变更
+- 新增 `apifox-doc-import` skill：将本地或在线的 Markdown、TXT、HTML、PDF、DOCX 文档转换为经过校验的 OpenAPI 3.0，并按用户请求或已保存偏好通过 Apifox CLI 导入。
+- 新增确定性的 OpenAPI 完整性指标检查，并在新的 `apifox-tools` 插件分组中注册 `./skills/apifox-doc-import`；marketplace 版本升级到 `0.2.29`。
+- 强化 `apifox-doc-import`：新增导入前名称冲突检查，以及导入后环境与接口鉴权绑定回读验证。
+- 在线文档提取优先尝试文档站 `.md`、`llms.txt` 和公开 OpenAPI 文件，缺失时再使用浏览器。
+- 调整 `apifox-doc-import` 的交付语义：优先从 `~/.shuliu-skills/apifox-doc-import/EXTEND.md` 读取 Apifox 项目、分支和接口目录偏好；缺失时询问并确认是否保存，完成条件改为导入后回读成功。
+- 要求 `apifox-doc-import` 每次导入接口时至少同时创建一份 Apifox 项目 Markdown 使用说明，并回读验证文档名称、正文和目录。
+- 为 `apifox-doc-import` 增加参数约束覆盖清单和指标，要求完整保留必填、枚举、范围、媒体格式/大小/尺寸/时长、组合依赖与互斥规则，并在导入后回读核对。
 - 新增 `visual-style-extractor` skill：从参考图片提取可复用视觉规则，并生成可直接复制的生图或精确改图提示词。
 - 在 `image-generation-skills` 中注册 `./skills/visual-style-extractor`，并将 marketplace 版本升级到 `0.2.28`。
 - 删除 `sora-video`、`banana-proxy`、`geek-image`、`feishu-card`、`xhs-text2image` 和 `feishu-user-auth` 六个 skill。
@@ -38,6 +45,7 @@
 - 在新的 `wechat-tools` 插件分组中注册 `./skills/wechat-mp-scraper`，并将 `.claude-plugin/marketplace.json` 版本号升级到 `0.2.20`。
 
 ### 文档
+- 补充 `apifox-doc-import` 的安装方式、在线文档处理、安全边界、校验流程和仓库结构说明。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `visual-style-extractor` 的安装、使用、目录结构和校验说明。
 - 从 `README.md`、`README.zh.md` 与 `AGENTS.md` 中移除已删除 skill，并同步刷新剩余插件说明与校验指南。
 - 更新 `README.md`、`README.zh.md` 与 `AGENTS.md`，补充 `short-drama` 的安装、使用、校验与仓库维护说明。

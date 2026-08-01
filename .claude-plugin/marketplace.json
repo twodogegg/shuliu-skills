@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.28"
+    "version": "0.2.29"
   },
   "plugins": [
     {
@@ -75,6 +75,15 @@
       "strict": false,
       "skills": [
         "./skills/short-drama"
+      ]
+    },
+    {
+      "name": "apifox-tools",
+      "description": "将本地或在线文档转换为 OpenAPI 并安全导入 Apifox",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/apifox-doc-import"
       ]
     }
   ]

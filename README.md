@@ -24,6 +24,7 @@ Install one or more plugins:
 /plugin install feishu-tools@shuliu-skills
 /plugin install newapi-tools@shuliu-skills
 /plugin install short-drama-tools@shuliu-skills
+/plugin install apifox-tools@shuliu-skills
 ```
 
 Run `/reload-plugins` after installation to load the newly installed plugins without restarting Claude Code.
@@ -52,6 +53,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approva
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
+npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
 ```
 
 ## Update Skill
@@ -71,6 +73,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approva
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
+npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
 ```
 
 ## Available Plugins
@@ -84,6 +87,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 | **feishu-tools** | Feishu native approval and Bitable operations | [feishu-bitable](#feishu-bitable), [feishu-approval](#feishu-approval) |
 | **newapi-tools** | NewAPI end-user queries and admin management | [newapi](#newapi), [newapi-admin](#newapi-admin) |
 | **short-drama-tools** | End-to-end vertical short-drama screenwriting workflow | [short-drama](#short-drama) |
+| **apifox-tools** | Convert local or online documents into Apifox API definitions | [apifox-doc-import](#apifox-doc-import) |
 
 ## Available Skills
 
@@ -315,4 +319,12 @@ Example:
 
 ```text
 Use $short-drama to create a 60-episode urban revenge drama for a female audience.
+```
+
+### apifox-doc-import
+
+Convert Markdown, TXT, HTML, PDF, DOCX, or online documents into OpenAPI 3.0 plus at least one project Markdown usage guide, preserve required, enum, range, file, and combination constraints, and import both with Apifox CLI after completeness checks. Target project, branch, and Apifox API folder preferences are read from `~/.shuliu-skills/apifox-doc-import/EXTEND.md`; missing preferences are requested before offering to save them.
+
+```text
+Use $apifox-doc-import to convert this online PRD into an Apifox API document.
 ```

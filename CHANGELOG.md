@@ -3,6 +3,13 @@
 ## Unreleased
 
 ### Changes
+- Add `apifox-doc-import` for converting local or online Markdown, TXT, HTML, PDF, and DOCX sources into validated OpenAPI 3.0 and importing them through Apifox CLI using explicit or saved preferences.
+- Add deterministic OpenAPI completeness metrics and register `./skills/apifox-doc-import` in the new `apifox-tools` plugin group; bump the marketplace version to `0.2.29`.
+- Strengthen `apifox-doc-import` with pre-import collision checks and post-import verification for environments and endpoint authentication bindings.
+- Prefer documentation-site `.md`, `llms.txt`, and published OpenAPI files before browser extraction.
+- Change `apifox-doc-import` delivery semantics to load Apifox project, branch, and API-folder preferences from `~/.shuliu-skills/apifox-doc-import/EXTEND.md`, request and optionally save missing values, and require successful post-import readback for completion.
+- Require `apifox-doc-import` to create at least one Apifox project Markdown usage guide with every interface import and verify its name, content, and folder by readback.
+- Add parameter-constraint coverage rules and metrics to `apifox-doc-import`, requiring preservation and post-import verification of required, enum, range, media format/size/dimension/duration, dependency, and mutual-exclusion rules.
 - Add the `visual-style-extractor` skill for extracting reusable visual rules from reference images and producing copy-ready generation or precise-edit prompts.
 - Register `./skills/visual-style-extractor` in `image-generation-skills` and bump the marketplace version to `0.2.28`.
 - Remove the `sora-video`, `banana-proxy`, `geek-image`, `feishu-card`, `xhs-text2image`, and `feishu-user-auth` skills.
@@ -38,6 +45,7 @@
 - Register `./skills/wechat-mp-scraper` in a new `wechat-tools` plugin group and bump `.claude-plugin/marketplace.json` metadata version to `0.2.20`.
 
 ### Documentation
+- Document `apifox-doc-import` installation, online-document handling, safety boundaries, validation, and repository structure.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, structure, and validation guidance for `visual-style-extractor`.
 - Remove the deleted skills from `README.md`, `README.zh.md`, and `AGENTS.md`, and refresh the remaining plugin descriptions and validation guidance.
 - Update `README.md`, `README.zh.md`, and `AGENTS.md` with installation, usage, validation, and repository guidance for `short-drama`.

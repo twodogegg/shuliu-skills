@@ -16,6 +16,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `newapi`: User-side NewAPI skill for models, groups, balance, tokens, and secure token application flows.
 - `newapi-admin`: Admin-side NewAPI backend management skill for channels, users, groups, quotas, logs, auth, and system options.
 - `short-drama`: End-to-end vertical short-drama workflow for planning, characters, episode writing, review, compliance, localization, and export.
+- `apifox-doc-import`: Convert local or online documents into validated OpenAPI 3.0 plus an Apifox project Markdown usage guide, then import both through Apifox CLI using preferences from `~/.shuliu-skills/apifox-doc-import/EXTEND.md`.
 
 - `.claude-plugin/marketplace.json`: marketplace metadata, plugin groups, and skill registration.
 - `skills/ecommerce-images/SKILL.md`: user-facing skill contract and usage docs for ecommerce images.
@@ -50,6 +51,9 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/short-drama/SKILL.md`: compact workflow entry and stage routing for short-drama creation.
 - `skills/short-drama/agents/openai.yaml`: Codex-facing display metadata and default prompt.
 - `skills/short-drama/references/*.md`: project workflow, screenplay formats, genre, opening, rhythm, hook, paywall, satisfaction, villain, and compliance guidance.
+- `skills/apifox-doc-import/SKILL.md`: local/online document extraction, user preference loading, OpenAPI generation, quality gates, and safe Apifox import workflow.
+- `skills/apifox-doc-import/references/*.md`: source extraction, parameter-constraint coverage, OpenAPI mapping, import safety, and Apifox project-document rules.
+- `skills/apifox-doc-import/scripts/check-openapi.mjs`: deterministic OpenAPI JSON structure and completeness metrics.
 - `README.md` / `README.zh.md`: install and update instructions.
 - `CHANGELOG.md` / `CHANGELOG.zh.md`: release notes.
 
@@ -71,6 +75,7 @@ No build step is required; scripts run directly with Bun, Node.js, or Python as 
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import`
 - Run local Douyin share parsing:
   - `npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyin.com/xxxx/" --json`
 - Run local Douyin video fetch/download:
@@ -91,6 +96,8 @@ No build step is required; scripts run directly with Bun, Node.js, or Python as 
 - Run local NewAPI admin API calls:
   - `node skills/newapi-admin/scripts/api.js GET /api/channel/`
   - `node skills/newapi-admin/scripts/api.js GET /api/pricing`
+- Validate generated OpenAPI for Apifox import:
+  - `node skills/apifox-doc-import/scripts/check-openapi.mjs /path/to/openapi.json`
 - Validate tracked changes before commit:
   - `git status --short`
 
@@ -117,6 +124,7 @@ There is no formal test suite yet. Validate behavior with smoke tests:
 5. Run one video-viral-analysis pass with data and one without data; confirm the output switches between data attribution and content-only prediction.
 6. Validate `skills/short-drama` with the Codex `skill-creator` `quick_validate.py` script and confirm every referenced Markdown file exists.
 7. Validate `skills/visual-style-extractor` with `quick_validate.py`, confirm all referenced files exist, and ensure its SVG contains no scripts or external resources.
+8. Validate `skills/apifox-doc-import` with `quick_validate.py`, run `check-openapi.mjs` against valid and invalid fixtures, and confirm every referenced Markdown file exists.
 
 When adding tests later, place them under each skill path (for example `skills/douyin-share-info/tests/`) and name files `*.test.ts`.
 

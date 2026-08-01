@@ -19,6 +19,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approva
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
+npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
 ```
 
 ## 更新技能
@@ -38,6 +39,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill feishu-approva
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
+npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
 ```
 
 ## 可用插件
@@ -51,6 +53,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 | **feishu-tools** | 飞书原生审批与多维表格工具 | [feishu-bitable](#feishu-bitable)、[feishu-approval](#feishu-approval) |
 | **newapi-tools** | NewAPI 用户侧查询与后台管理工具 | [newapi](#newapi)、[newapi-admin](#newapi-admin) |
 | **short-drama-tools** | 微短剧全流程创作工作流 | [short-drama](#short-drama) |
+| **apifox-tools** | 将本地或在线文档转换为 Apifox 接口文档 | [apifox-doc-import](#apifox-doc-import) |
 
 ## 可用技能
 
@@ -282,4 +285,12 @@ node skills/newapi-admin/scripts/api.js POST /api/channel/test '{"id":3,"model":
 
 ```text
 使用 $short-drama 创作一部面向女频观众的 60 集都市复仇短剧。
+```
+
+### apifox-doc-import
+
+将 Markdown、TXT、HTML、PDF、DOCX 或在线文档转换为 OpenAPI 3.0 和至少一份项目 Markdown 使用说明，逐项保留必填、枚举、范围、文件与组合限制，完成接口完整性检查后通过 Apifox CLI 一起导入。默认从 `~/.shuliu-skills/apifox-doc-import/EXTEND.md` 读取目标项目、分支和 Apifox 接口目录；偏好缺失时会询问并确认是否保存。
+
+```text
+使用 $apifox-doc-import 把这份在线 PRD 转换为 Apifox 接口文档。
 ```
