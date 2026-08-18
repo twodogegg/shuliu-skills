@@ -1,65 +1,67 @@
 ---
 name: ai-cover-prompt-builder
-description: build reusable image-generation prompts for chinese youtube-style ai tutorial covers. use when the user wants a saved cover or thumbnail prompt, especially with fixed creator/persona images, reference cover images, notion-style covers, dopamine clickbait covers, or ai tool tutorial thumbnail styles. this skill writes prompt files for another image-generation tool and does not directly generate images.
+description: 为中文 YouTube 教程缩略图和 9:16 微短剧海报编写可复用的图像生成提示词。用户需要保存封面或缩略图提示词，尤其是固定人物、参考封面、Notion 风格、强点击风格、AI 工具教程，或都市情感、逆袭玄幻、规则悬疑、赛车热血等短剧海报时使用。本技能只写提示词文件，不直接生成图片。
 ---
 
-# AI Cover Prompt Builder
+# AI 封面提示词构建器
 
-## Overview
+## 目标
 
-Create reusable image-generation prompts for Chinese YouTube covers and thumbnails. This skill outputs prompt text and saves it as a `.md` or `.txt` file. It does not generate images.
+为中文 YouTube 封面、缩略图和短剧海报编写可复用的图像生成提示词，并保存为 `.md` 或 `.txt` 文件；不直接生成图片。
 
-## Workflow
+## 工作流
 
-1. Identify the user's topic, title, subtitle or promise line, style preference, and output filename. Infer sensible defaults when the request is clear enough.
-2. Read `assets/README.md` for the user's plain-language asset notes.
-3. Use files in `assets/character/` as fixed creator or persona references when present.
-4. Use files in `assets/reference-images/` as style, layout, icon, app UI, or thumbnail references when present.
-5. Select a style from `references/style-presets.md`. If unspecified, use `clean-tech-tutorial`.
-6. Use `references/prompt-templates.md` to compose the final prompt.
-7. Save the prompt file. Include the main prompt, negative prompt, and short production notes.
-8. Reply with the saved file path, the selected style, and a brief note on which reference folders were used.
+1. 确定主题、主标题、副标题或钩子、风格偏好和输出文件名；信息充分时自行补足合理默认值。
+2. 阅读 `assets/README.md` 中的素材说明。
+3. 存在 `assets/character/` 时，将其作为固定创作者或角色参考。
+4. 存在 `assets/reference-images/` 时，将其作为风格、构图、图标、应用界面或封面参考。
+5. 从 `references/style-presets.md` 选择风格：教程类默认 `clean-tech-tutorial`；明确为短剧或 9:16 海报时默认 `short-drama-poster`，并阅读 `references/short-drama-poster.md`。
+6. 使用 `references/prompt-templates.md` 组装最终提示词。
+7. 保存提示词文件，包含主提示词、负面提示词和简短制作说明。
+8. 回复保存路径、所选风格，以及实际使用的参考素材目录。
 
-## Asset rules
+## 素材规则
 
-- Do not require JSON configuration.
-- Treat `assets/README.md` as the configuration file. It may be informal Markdown or plain notes.
-- Preserve the fixed character identity when the README or user says the character is fixed.
-- Use reference images for direction, not exact copying.
-- If user instructions conflict with asset notes, follow the latest user instruction.
-- Do not overload the prompt with every reference image. Prefer the most relevant character reference and 1 to 3 visual references.
+- 不要求 JSON 配置；将 `assets/README.md` 视为配置文件，它可以是随意的 Markdown 或纯文本。
+- README 或用户说明角色固定时，保持人物身份、五官和发型一致。
+- 参考图只用于提取方向，不直接复制具体构图、角色或文字。
+- 用户最新指令与素材说明冲突时，以用户最新指令为准。
+- 不把每张参考图都塞入提示词；优先使用最相关的人物参考和 1 至 3 张视觉参考。
+- 参考图含裸露、性暗示或不适宜元素时，只提取安全的色彩、镜头和排版规律；提示词中的角色必须是衣着得体的成年人。
 
-## Prompt quality rules
+## 提示词质量规则
 
-- Keep thumbnail text simple: one main title, one subtitle, and at most one badge unless the user asks for more.
-- Include composition, text hierarchy, color palette, character placement, asset references, and negative prompt.
-- Prefer sharp visible background objects such as a laptop screen, app interface, Notion workspace, or tool dashboard over vague blurry glow.
-- Recommend manual typesetting for final Chinese text if the image model produces distorted characters.
-- Do not generate the image unless the user separately asks another image-generation tool to do it.
+- 除非用户另有要求，封面仅保留一个主标题、一个副标题和至多一个角标。
+- 必须描述构图、文字层级、色板、人物位置、参考素材和负面提示词。
+- 教程封面优先使用清晰可见的笔记本、应用界面、Notion 工作区或工具仪表盘，避免只有模糊光晕。
+- 短剧海报优先让人物关系、冲突瞬间和类型符号在手机尺寸下一眼可读；主标题通常为 2 至 8 个字，钩子不超过 12 个字。
+- 若模型生成的中文不稳定，建议先出无字底图，再手动排版最终中文标题。
+- 除非用户另行要求其他图像生成工具，不生成图片。
 
-## Output file format
+## 输出文件格式
 
-Use this structure:
+使用以下结构：
 
 ```markdown
-# Cover Prompt
+# 封面提示词
 
-## Inputs
-- Style: [style]
-- Main title: [title]
-- Subtitle: [subtitle]
-- Badge: [badge]
+## 输入
+- 风格：[style]
+- 画幅：[aspect ratio]
+- 主标题：[title]
+- 副标题或钩子：[subtitle]
+- 角标：[badge]
 
-## References Used
-- Character: [folder or file notes]
-- Visual references: [folder or file notes]
+## 使用的参考
+- 人物：[folder or file notes]
+- 视觉参考：[folder or file notes]
 
-## Prompt
+## 主提示词
 [prompt]
 
-## Negative Prompt
+## 负面提示词
 [negative prompt]
 
-## Production Notes
-[short notes for generation and manual cleanup]
+## 制作说明
+[生成和后期清理说明]
 ```

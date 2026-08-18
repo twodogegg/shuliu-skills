@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### 变更
+- 为 `ai-cover-prompt-builder` 新增 `short-drama-poster` 风格、可复用的 9:16 提示词模板和视觉规则，覆盖都市情感、逆袭玄幻、规则悬疑、赛车热血短剧海报，并加入安全的人物呈现边界。
 - 新增 `apifox-doc-import` skill：将本地或在线的 Markdown、TXT、HTML、PDF、DOCX 文档转换为经过校验的 OpenAPI 3.0，并按用户请求或已保存偏好通过 Apifox CLI 导入。
 - 新增确定性的 OpenAPI 完整性指标检查，并在新的 `apifox-tools` 插件分组中注册 `./skills/apifox-doc-import`；marketplace 版本升级到 `0.2.29`。
 - 强化 `apifox-doc-import`：新增导入前名称冲突检查，以及导入后环境与接口鉴权绑定回读验证。

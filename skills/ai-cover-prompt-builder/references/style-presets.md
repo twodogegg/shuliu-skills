@@ -2,6 +2,12 @@
 
 Use these presets as direction, not rigid recipes.
 
+## short-drama-poster
+
+适用于 9:16 中文微短剧海报。用前、中、后景的人物层次先讲清关系和冲突：主角占据前景或视觉中心，配角以对视、背离、守护或对峙形成戏剧张力。主标题占画面约四分之一，少而重，按题材选择明确色彩和材质：都市情感用暖金、奶油白与电影柔光；逆袭玄幻用金色书法、火焰和能量环；规则悬疑用黑、灰、白、警示红与破损字；赛车热血用高饱和红黑、金属质感和速度线。详细构图与模板见 `short-drama-poster.md`。
+
+适用：都市情感、豪门逆袭、重生穿越、玄幻爽剧、规则怪谈、复仇悬疑、赛车热血。
+
 ## clean-tech-tutorial
 
 A polished AI tutorial thumbnail. Use a dark tech workspace, sharp laptop or app UI in the background, a right-side creator portrait, medium-large title text, and a black, purple, orange, white, and yellow palette. Keep the layout clean and readable.

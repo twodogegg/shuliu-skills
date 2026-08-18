@@ -1,5 +1,7 @@
 interface:
-  display_name: AI Cover Prompt Builder
+  display_name: "AI 封面提示词构建器"
+  short_description: "为中文教程缩略图与九比十六微短剧海报编写生图提示词"
+  default_prompt: "使用 $ai-cover-prompt-builder 为一部都市悬疑短剧写一份 9:16 海报生图提示词。"
 policy:
   products:
   - chatgpt
