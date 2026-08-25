@@ -8,3 +8,5 @@ test/
 .omx/
 skills/*/.env
 skills/*/.session.json
+skills/*/.env.*
+skills/*/.session.*.json

@@ -1,6 +1,6 @@
 ---
 name: newapi-admin
-description: Manage the user's NewAPI backend at api.darl.cn. Use when the user asks to inspect or modify NewAPI backend resources such as channels, models, tokens, users, groups, quotas, logs, options, auth, payments, 2FA, OAuth, setup, or any admin API in the imported NewAPI project.
+description: Manage the user's configured NewAPI backends. Use when the user asks to inspect or modify NewAPI backend resources such as channels, models, tokens, users, groups, quotas, logs, options, auth, payments, 2FA, OAuth, setup, or any admin API in the imported NewAPI project.
 ---
 
 # NewAPI Admin
@@ -9,7 +9,13 @@ description: Manage the user's NewAPI backend at api.darl.cn. Use when the user 
 
 ## 配置
 
-脚本读取 skill 目录下的 `.env`：
+脚本支持多个管理端 profile：
+
+- 默认 profile：`.env`
+- 命名 profile：`.env.<名称>`，例如 `.env.local`、`.env.prod`
+- 会话缓存按 profile 隔离：默认使用 `.session.json`，命名 profile 默认使用 `.session.<名称>.json`
+
+每个配置文件包含：
 
 - `NEWAPI_ADMIN_BASE_URL`
 - `NEWAPI_ADMIN_USERNAME`
@@ -17,7 +23,7 @@ description: Manage the user's NewAPI backend at api.darl.cn. Use when the user 
 - `NEWAPI_ADMIN_USER_ID`
 - `NEWAPI_ADMIN_ACCESS_TOKEN`
 
-不要在聊天里输出密码、session、access token、渠道 key。
+环境变量的优先级高于配置文件；命名 profile 会覆盖默认 `.env` 中的同名配置。不要在聊天里输出密码、session、access token、渠道 key。
 
 ## 使用
 
@@ -28,6 +34,20 @@ node "$CLAUDE_SKILL_DIR/scripts/api.js" GET /api/channel/
 node "$CLAUDE_SKILL_DIR/scripts/api.js" GET /api/user/self
 node "$CLAUDE_SKILL_DIR/scripts/api.js" GET /api/user/models
 node "$CLAUDE_SKILL_DIR/scripts/api.js" POST /api/channel/test '{"id":3,"model":"gpt-image-2"}'
+```
+
+选择指定后台时，在命令前加入 `--profile`：
+
+```bash
+node "$CLAUDE_SKILL_DIR/scripts/api.js" --profile local GET /api/channel/
+node "$CLAUDE_SKILL_DIR/scripts/api.js" --profile prod GET /api/user/self
+```
+
+需要把某个 NewAPI Token 安全交给本地子进程时，使用 `--exec-token`。真实密钥仅以 `NEWAPI_TOKEN` 环境变量传入子进程，不会出现在命令参数或脚本输出中：
+
+```bash
+node "$CLAUDE_SKILL_DIR/scripts/api.js" --profile local --exec-token 5 -- \
+  your-command --token-from-env
 ```
 
 在 Codex 中如果没有 `CLAUDE_SKILL_DIR`，使用 skill 实际路径：
@@ -103,6 +123,6 @@ node "$CLAUDE_SKILL_DIR/scripts/api.js" PUT /api/option/ '{"key":"UserUsableGrou
 
 ## 安全
 
-- 响应里如含 `key`、`session`、`token`、`Authorization`，脚本会做基础脱敏。
-- 不要把 `.env` 内容贴给用户。
+- 响应里如含 `key`、`session`、`token`、`Authorization`，脚本会做基础脱敏；渠道密钥应从标准输入传入，不要写进命令参数。
+- 不要把 `.env`、`.env.<profile>` 内容贴给用户。
 - 只在用户明确要求时修改后台资源。
