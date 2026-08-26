@@ -1,6 +1,6 @@
 ---
 name: issue-to-pr
-description: implement GitHub issues end to end: inspect and claim an issue, understand the repository and acceptance criteria, create an isolated branch, fix the bug or build the requested change, run appropriate validation, commit the implementation, push the branch, and open a focused pull request. Use when the user asks to领取/认领一个 issue、按 issue 修复 bug 或实现需求、完成后自测并提交 PR，or asks to turn a GitHub issue into a reviewed pull request.
+description: "Implement GitHub issues end to end: inspect and claim an issue, understand the repository and acceptance criteria, create an isolated branch, fix the bug or build the requested change, run appropriate validation, commit the implementation, push the branch, and open a focused pull request. Use when the user asks to领取/认领一个 issue、按 issue 修复 bug 或实现需求、完成后自测并提交 PR，or asks to turn a GitHub issue into a reviewed pull request."
 ---
 
 # Issue to PR

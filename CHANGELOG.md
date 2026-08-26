@@ -1,6 +1,7 @@
 # Changelog
 
 ### Changes
+- Fix `issue-to-pr` YAML frontmatter by quoting the description containing colons and non-ASCII punctuation, so the skill can be parsed and installed locally by the `skills` CLI.
 - Strengthen `issue-to-pr`: when an issue contains images, screenshots, video frames, or attachments, inspect them in practice and record the reproduction evidence; require PRs to explain why the change was made and its expected impact.
 - Add `issue-to-pr` for the end-to-end GitHub issue workflow: claim and understand an issue, create an isolated branch, implement the fix or feature, validate it, commit, push, and open a focused pull request; register a new `development-tools` plugin group and bump the marketplace version to `0.2.30`.
 - Add a `short-drama-poster` preset, reusable 9:16 prompt template, and visual rules to `ai-cover-prompt-builder`, covering romance, fantasy comeback, rule-thriller, and racing drama posters with safe character guidance.
