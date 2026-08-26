@@ -54,6 +54,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
+npx skills add https://github.com/twodogegg/shuliu-skills --skill issue-to-pr
 ```
 
 ## Update Skill
@@ -74,6 +75,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
+npx skills add https://github.com/twodogegg/shuliu-skills --skill issue-to-pr
 ```
 
 ## Available Plugins
@@ -88,6 +90,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-imp
 | **newapi-tools** | NewAPI end-user queries and admin management | [newapi](#newapi), [newapi-admin](#newapi-admin) |
 | **short-drama-tools** | End-to-end vertical short-drama screenwriting workflow | [short-drama](#short-drama) |
 | **apifox-tools** | Convert local or online documents into Apifox API definitions | [apifox-doc-import](#apifox-doc-import) |
+| **development-tools** | Issue-driven development, validation, commit, and pull request workflow | [issue-to-pr](#issue-to-pr) |
 
 ## Available Skills
 
@@ -327,4 +330,12 @@ Convert Markdown, TXT, HTML, PDF, DOCX, or online documents into OpenAPI 3.0 plu
 
 ```text
 Use $apifox-doc-import to convert this online PRD into an Apifox API document.
+```
+
+### issue-to-pr
+
+Run a GitHub issue from claim to pull request: inspect the issue and comments, create an isolated branch, implement the bug fix or feature, validate the result, commit, push, and open a focused PR. It never merges automatically and stops clearly on ambiguity, missing access, or failed validation.
+
+```text
+Use $issue-to-pr to claim and complete issue #123, validate it, and open a PR.
 ```

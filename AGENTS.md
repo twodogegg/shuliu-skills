@@ -17,6 +17,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `newapi-admin`: Admin-side NewAPI backend management skill for channels, users, groups, quotas, logs, auth, and system options.
 - `short-drama`: End-to-end vertical short-drama workflow for planning, characters, episode writing, review, compliance, localization, and export.
 - `apifox-doc-import`: Convert local or online documents into validated OpenAPI 3.0 plus an Apifox project Markdown usage guide, then import both through Apifox CLI using preferences from `~/.shuliu-skills/apifox-doc-import/EXTEND.md`.
+- `issue-to-pr`: Issue-driven development workflow from claiming an issue through validation, commit, push, and pull request creation.
 
 - `.claude-plugin/marketplace.json`: marketplace metadata, plugin groups, and skill registration.
 - `skills/ecommerce-images/SKILL.md`: user-facing skill contract and usage docs for ecommerce images.
@@ -54,6 +55,7 @@ This repository is a Claude Code skills marketplace currently focused on:
 - `skills/apifox-doc-import/SKILL.md`: local/online document extraction, user preference loading, OpenAPI generation, quality gates, and safe Apifox import workflow.
 - `skills/apifox-doc-import/references/*.md`: source extraction, parameter-constraint coverage, OpenAPI mapping, import safety, and Apifox project-document rules.
 - `skills/apifox-doc-import/scripts/check-openapi.mjs`: deterministic OpenAPI JSON structure and completeness metrics.
+- `skills/issue-to-pr/SKILL.md`: end-to-end issue implementation, validation, commit, push, and PR workflow.
 - `README.md` / `README.zh.md`: install and update instructions.
 - `CHANGELOG.md` / `CHANGELOG.zh.md`: release notes.
 
@@ -76,6 +78,7 @@ No build step is required; scripts run directly with Bun, Node.js, or Python as 
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama`
   - `npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import`
+  - `npx skills add https://github.com/twodogegg/shuliu-skills --skill issue-to-pr`
 - Run local Douyin share parsing:
   - `npx -y bun skills/douyin-share-info/scripts/main.ts --share-url "https://v.douyin.com/xxxx/" --json`
 - Run local Douyin video fetch/download:

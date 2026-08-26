@@ -1,8 +1,8 @@
 # 更新日志
 
-## Unreleased
-
 ### 变更
+- 强化 `issue-to-pr`：issue 包含图片、截图、视频帧或附件时，必须下载并实际查看，记录图片中的复现证据；PR 必须明确说明修改原因和预期效果。
+- 新增 `issue-to-pr` skill：围绕 GitHub issue 完成领取、理解需求、创建分支、修复 bug/实现需求、自验证、提交代码、推送分支和发起 Pull Request 的端到端开发工作流；新增 `development-tools` 插件分组，marketplace 版本升级到 `0.2.30`。
 - 为 `ai-cover-prompt-builder` 新增 `short-drama-poster` 风格、可复用的 9:16 提示词模板和视觉规则，覆盖都市情感、逆袭玄幻、规则悬疑、赛车热血短剧海报，并加入安全的人物呈现边界。
 - 新增 `apifox-doc-import` skill：将本地或在线的 Markdown、TXT、HTML、PDF、DOCX 文档转换为经过校验的 OpenAPI 3.0，并按用户请求或已保存偏好通过 Apifox CLI 导入。
 - 新增确定性的 OpenAPI 完整性指标检查，并在新的 `apifox-tools` 插件分组中注册 `./skills/apifox-doc-import`；marketplace 版本升级到 `0.2.29`。

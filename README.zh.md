@@ -20,6 +20,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
+npx skills add https://github.com/twodogegg/shuliu-skills --skill issue-to-pr
 ```
 
 ## 更新技能
@@ -40,6 +41,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi
 npx skills add https://github.com/twodogegg/shuliu-skills --skill newapi-admin
 npx skills add https://github.com/twodogegg/shuliu-skills --skill short-drama
 npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-import
+npx skills add https://github.com/twodogegg/shuliu-skills --skill issue-to-pr
 ```
 
 ## 可用插件
@@ -54,6 +56,7 @@ npx skills add https://github.com/twodogegg/shuliu-skills --skill apifox-doc-imp
 | **newapi-tools** | NewAPI 用户侧查询与后台管理工具 | [newapi](#newapi)、[newapi-admin](#newapi-admin) |
 | **short-drama-tools** | 微短剧全流程创作工作流 | [short-drama](#short-drama) |
 | **apifox-tools** | 将本地或在线文档转换为 Apifox 接口文档 | [apifox-doc-import](#apifox-doc-import) |
+| **development-tools** | Issue 驱动的开发、验证、提交与 PR 工作流 | [issue-to-pr](#issue-to-pr) |
 
 ## 可用技能
 
@@ -293,4 +296,12 @@ node skills/newapi-admin/scripts/api.js POST /api/channel/test '{"id":3,"model":
 
 ```text
 使用 $apifox-doc-import 把这份在线 PRD 转换为 Apifox 接口文档。
+```
+
+### issue-to-pr
+
+围绕 GitHub issue 完成从领取到 Pull Request 的端到端开发工作流：读取 issue 和评论、检查仓库状态、创建隔离分支、实现 bug 修复或需求、执行自验证、提交代码、推送分支并发起 PR。不会自动合并 PR；遇到需求歧义、权限不足或验证失败会明确停下并报告。
+
+```text
+使用 $issue-to-pr 领取并完成 issue #123，验证后发起 PR。
 ```

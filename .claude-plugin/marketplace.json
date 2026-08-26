@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Local skills marketplace for shuliu workflows",
-    "version": "0.2.29"
+    "version": "0.2.30"
   },
   "plugins": [
     {
@@ -75,6 +75,15 @@
       "strict": false,
       "skills": [
         "./skills/short-drama"
+      ]
+    },
+    {
+      "name": "development-tools",
+      "description": "Issue 驱动的开发、验证、提交与 Pull Request 工作流",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/issue-to-pr"
       ]
     },
     {
